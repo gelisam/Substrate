@@ -3,7 +3,11 @@
 
 MainWindow::MainWindow(QWidget* parent)
 : QMainWindow(parent)
-, textEditWidget(new QTextEdit("Hello World"))
+, _textEditWidget(new QTextEdit("Hello World"))
 {
-  setCentralWidget(textEditWidget);
+  setCentralWidget(_textEditWidget);
+}
+
+QTextEdit* MainWindow::textEditWidget() const {
+  return _textEditWidget;
 }

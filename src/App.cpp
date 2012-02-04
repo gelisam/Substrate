@@ -15,15 +15,19 @@ Application::Application(int argc, char** argv)
   // initialize fields here instead of the init list
   // so that constructors can access the app global.
   
-  mainWindow = new MainWindow;
+  _mainWindow = new MainWindow;
 }
 
 Application::~Application() {
-  delete mainWindow;
+  delete _mainWindow;
 }
 
 void Application::Application::run() {
-  mainWindow->show();
+  _mainWindow->show();
   
   exec();
+}
+
+MainWindow* Application::mainWindow() const {
+  return _mainWindow;
 }

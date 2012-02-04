@@ -11,13 +11,15 @@ class Application : public QApplication
   Q_OBJECT;
   
 private:
-  MainWindow* mainWindow;
+  MainWindow* _mainWindow;
   
 public:
   Application(int argc, char** argv);
   ~Application();
   
   void run();
+  
+  MainWindow* mainWindow() const;
 };
 
 extern Application* app;
