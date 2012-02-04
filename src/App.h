@@ -2,7 +2,7 @@
 #define APPLICATION_H
 
 #include <QtGui/QApplication>
-#include <QtGui/QPushButton>
+#include <QtGui/QTextEdit>
 
 
 class Application : public QApplication
@@ -10,7 +10,7 @@ class Application : public QApplication
   Q_OBJECT;
   
 private:
-  QPushButton* hello;
+  QTextEdit* textEditWidget;
   
 public:
   Application(int argc, char** argv);

@@ -15,11 +15,11 @@ Application::Application(int argc, char** argv)
   // initialize fields here instead of the init list
   // so that constructors can access the app global.
   
-  hello = new QPushButton("Hello World");
+  textEditWidget = new QTextEdit("Hello World");
 }
 
 void Application::Application::run() {
-  hello->show();
+  textEditWidget->show();
   
   exec();
 }
