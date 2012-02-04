@@ -1,0 +1,18 @@
+Substrate 0.1.0
+===
+
+Substrate is a GUI tool which makes it easy to build text processing
+pipelines.
+
+With its ability to display intermediate results from the middle of your
+pipeline, it's easy to spot which part of your pipelines don't behave as they
+should.
+
+How to use Substrate
+---
+Use File/Open to load a Bash script into our plain, Notepad-style text editor.
+Don't worry, we don't plan to stay so plain and platform-specific for too long.
+
+Edit away, and when you are curious about the intermediate output of the
+current line, hit F5 and Substrate will run the script up to and including the
+current line, stripping any trailing pipe character if necessary.
