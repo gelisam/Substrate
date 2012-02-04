@@ -10,6 +10,11 @@ MainWindow::MainWindow(QWidget* parent)
   setCentralWidget(_textEditWidget);
 }
 
+void MainWindow::init() {
+  _menuBar->init();
+}
+
+
 MenuBar* MainWindow::menuBar() const {
   return _menuBar;
 }

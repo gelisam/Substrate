@@ -8,6 +8,11 @@ MenuBar::MenuBar(QWidget* parent)
   addMenu(_fileMenu);
 }
 
+void MenuBar::init() {
+  _fileMenu->init();
+}
+
+
 FileMenu* MenuBar::fileMenu() const {
   return _fileMenu;
 }

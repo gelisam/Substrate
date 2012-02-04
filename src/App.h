@@ -17,6 +17,7 @@ public:
   Application(int argc, char** argv);
   ~Application();
   
+  void init();
   void run();
   
   MainWindow* mainWindow() const;

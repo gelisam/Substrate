@@ -18,6 +18,8 @@ private:
 public:
   MainWindow(QWidget* parent=0);
   
+  void init();
+  
   MenuBar* menuBar() const;
   QTextEdit* textEditWidget() const;
 };

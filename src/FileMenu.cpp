@@ -8,6 +8,11 @@ FileMenu::FileMenu(QWidget* parent)
   addAction(_quitAction);
 }
 
+void FileMenu::init() {
+  _quitAction->init();
+}
+
+
 QuitAction* FileMenu::quitAction() const {
   return _quitAction;
 }

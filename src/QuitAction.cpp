@@ -5,5 +5,9 @@
 QuitAction::QuitAction(QObject* parent)
 : QAction("&Quit", parent)
 {
-  connect(this, SIGNAL(triggered()), app->mainWindow(), SLOT(close()));
+}
+
+void QuitAction::init() {
+  connect(this,              SIGNAL(triggered()),
+          app->mainWindow(), SLOT(close()));
 }

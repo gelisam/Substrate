@@ -10,6 +10,8 @@ class QuitAction : public QAction
   
 public:
   QuitAction(QObject* parent=0);
+  
+  void init();
 };
 
 #endif

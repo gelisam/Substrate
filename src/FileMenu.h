@@ -16,6 +16,8 @@ private:
 public:
   FileMenu(QWidget* parent=0);
   
+  void init();
+  
   QuitAction* quitAction() const;
 };
 

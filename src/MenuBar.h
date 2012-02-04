@@ -16,6 +16,8 @@ private:
 public:
   MenuBar(QWidget* parent=0);
   
+  void init();
+  
   FileMenu* fileMenu() const;
 };
 
