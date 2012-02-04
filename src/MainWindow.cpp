@@ -4,7 +4,7 @@
 MainWindow::MainWindow(QWidget* parent)
 : QMainWindow(parent)
 , _menuBar(new MenuBar(this))
-, _textEditWidget(new QTextEdit("Hello World"))
+, _textEditWidget(new QTextEdit("Hello World", this))
 {
   setMenuBar(_menuBar);
   setCentralWidget(_textEditWidget);
