@@ -2,7 +2,8 @@
 #define APPLICATION_H
 
 #include <QtGui/QApplication>
-#include <QtGui/QTextEdit>
+
+#include "MainWindow.h"
 
 
 class Application : public QApplication
@@ -10,7 +11,7 @@ class Application : public QApplication
   Q_OBJECT;
   
 private:
-  QTextEdit* textEditWidget;
+  MainWindow* mainWindow;
   
 public:
   Application(int argc, char** argv);

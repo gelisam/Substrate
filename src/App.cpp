@@ -15,15 +15,15 @@ Application::Application(int argc, char** argv)
   // initialize fields here instead of the init list
   // so that constructors can access the app global.
   
-  textEditWidget = new QTextEdit("Hello World");
+  mainWindow = new MainWindow;
 }
 
 Application::~Application() {
-  delete textEditWidget;
+  delete mainWindow;
 }
 
 void Application::Application::run() {
-  textEditWidget->show();
+  mainWindow->show();
   
   exec();
 }
