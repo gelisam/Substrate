@@ -18,6 +18,10 @@ Application::Application(int argc, char** argv)
   textEditWidget = new QTextEdit("Hello World");
 }
 
+Application::~Application() {
+  delete textEditWidget;
+}
+
 void Application::Application::run() {
   textEditWidget->show();
   

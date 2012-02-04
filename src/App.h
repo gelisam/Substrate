@@ -14,6 +14,7 @@ private:
   
 public:
   Application(int argc, char** argv);
+  ~Application();
   
   void run();
 };
