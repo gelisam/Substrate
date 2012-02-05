@@ -3,6 +3,7 @@
 
 #include <QtGui/QMenu>
 
+#include "OpenAction.h"
 #include "QuitAction.h"
 
 
@@ -11,6 +12,7 @@ class FileMenu : public QMenu
   Q_OBJECT;
   
 private:
+  OpenAction* _openAction;
   QuitAction* _quitAction;
   
 public:
@@ -18,6 +20,7 @@ public:
   
   void init();
   
+  OpenAction* openAction() const;
   QuitAction* quitAction() const;
 };
 
