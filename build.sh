@@ -3,6 +3,6 @@ set -e
 
 APP="$(basename "$(pwd)")"
 
-qmake TARGET="$APP" src/app.pro
+qmake TARGET="$APP" app.pro
 make
 echo "*** BUILD OK ***"

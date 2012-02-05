@@ -1,4 +1,4 @@
-#include "MenuBar.h"
+#include "menu/MenuBar.h"
 
 
 MenuBar::MenuBar(QWidget* parent)

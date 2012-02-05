@@ -3,7 +3,7 @@
 
 #include <QtGui/QApplication>
 
-#include "MainWindow.h"
+#include "widget/MainWindow.h"
 
 
 class Application : public QApplication

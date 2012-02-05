@@ -4,7 +4,7 @@
 #include <QtGui/QMainWindow>
 #include <QtGui/QTextEdit>
 
-#include "MenuBar.h"
+#include "menu/MenuBar.h"
 
 
 class MainWindow : public QMainWindow

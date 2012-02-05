@@ -2,7 +2,7 @@
 #include <QtGui/QFileDialog>
 #include <QtGui/QMessageBox>
 
-#include "OpenAction.h"
+#include "action/OpenAction.h"
 #include "App.h"
 
 

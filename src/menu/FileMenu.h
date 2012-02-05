@@ -3,8 +3,8 @@
 
 #include <QtGui/QMenu>
 
-#include "OpenAction.h"
-#include "QuitAction.h"
+#include "action/OpenAction.h"
+#include "action/QuitAction.h"
 
 
 class FileMenu : public QMenu

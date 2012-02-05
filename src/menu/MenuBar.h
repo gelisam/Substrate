@@ -3,7 +3,7 @@
 
 #include <QtGui/QMenuBar>
 
-#include "FileMenu.h"
+#include "menu/FileMenu.h"
 
 
 class MenuBar : public QMenuBar
