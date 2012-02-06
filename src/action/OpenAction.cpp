@@ -1,9 +1,10 @@
+#include "action/OpenAction.h"
+
+#include "App.h"
+
 #include <QtCore/QFile>
 #include <QtGui/QFileDialog>
 #include <QtGui/QMessageBox>
-
-#include "action/OpenAction.h"
-#include "App.h"
 
 
 OpenAction::OpenAction(QObject* parent)
