@@ -4,7 +4,6 @@
 
 #include <QtCore/QFile>
 #include <QtGui/QFileDialog>
-#include <QtGui/QMessageBox>
 
 
 OpenAction::OpenAction(QObject* parent)
@@ -38,9 +37,7 @@ void OpenAction::act() {
       }
     }
     
-    QMessageBox::warning(
-      app->mainWindow(), "Error",
-      file.errorString());
+    app->errorMessage(file.errorString());
     
     // error.
     return;

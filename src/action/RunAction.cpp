@@ -4,7 +4,6 @@
 
 #include <QtCore/QTemporaryFile>
 #include <QtCore/QProcess>
-#include <QtGui/QMessageBox>
 
 
 RunAction::RunAction(QObject* parent)
@@ -40,13 +39,9 @@ void RunAction::run(QString scriptContents) {
   }
   
   if (file.error() != QTemporaryFile::NoError) {
-    QMessageBox::warning(
-      app->mainWindow(), "Error",
-      file.errorString());
+    app->errorMessage(file.errorString());
   } else {
-    QMessageBox::warning(
-      app->mainWindow(), "Error",
-      process.errorString());
+    app->errorMessage(process.errorString());
   }
   
   // error.

@@ -20,6 +20,8 @@ public:
   void init();
   void run();
   
+  void errorMessage(const QString& message) const;
+  
   MainWindow* mainWindow() const;
 };
 

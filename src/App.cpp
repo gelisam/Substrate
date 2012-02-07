@@ -33,6 +33,10 @@ void Application::Application::run() {
   exec();
 }
 
+void Application::errorMessage(const QString& message) const {
+  _mainWindow->statusBar()->showMessage(message, 1500);
+}
+
 
 MainWindow* Application::mainWindow() const {
   return _mainWindow;
