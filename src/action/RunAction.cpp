@@ -12,6 +12,8 @@ RunAction::RunAction(QObject* parent)
 }
 
 void RunAction::init() {
+  setShortcut(QKeySequence("Shift+F5"));
+  
   connect(this, SIGNAL(triggered()),
           this, SLOT(act()));
 }
