@@ -5,6 +5,7 @@ Application* app = NULL;
 
 Application::Application(int argc, char** argv)
 : QApplication(argc, argv)
+, _oven(new Oven)
 , _mainWindow(new MainWindow)
 {
   app = this;
@@ -37,6 +38,10 @@ void Application::errorMessage(const QString& message) const {
   _mainWindow->statusBar()->errorMessage(message);
 }
 
+
+Oven* Application::oven() const {
+  return _oven;
+}
 
 MainWindow* Application::mainWindow() const {
   return _mainWindow;

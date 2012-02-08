@@ -14,7 +14,6 @@ public:
   void init();
   
 private slots:
-  void run(QString scriptContents);
   void act();
 };
 

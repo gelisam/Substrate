@@ -3,6 +3,7 @@
 
 #include <QtGui/QApplication>
 
+#include "Oven.h"
 #include "widget/MainWindow.h"
 
 
@@ -11,6 +12,7 @@ class Application : public QApplication
   Q_OBJECT;
   
 private:
+  Oven* _oven;
   MainWindow* _mainWindow;
   
 public:
@@ -22,6 +24,7 @@ public:
   
   void errorMessage(const QString& message) const;
   
+  Oven* oven() const;
   MainWindow* mainWindow() const;
 };
 
