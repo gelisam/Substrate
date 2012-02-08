@@ -34,7 +34,7 @@ void Application::Application::run() {
 }
 
 void Application::errorMessage(const QString& message) const {
-  _mainWindow->statusBar()->showMessage(message, 1500);
+  _mainWindow->statusBar()->errorMessage(message);
 }
 
 
