@@ -30,7 +30,7 @@ void OpenAction::act() {
     if (file.open(QIODevice::ReadOnly | QIODevice::Text)) {
       QString contents = QString::fromUtf8(file.readAll());
       if (file.error() == QFile::NoError) {
-        QTextEdit* textEdit = app->mainWindow()->textEditWidget();
+        QTextEdit* textEdit = app->mainWindow()->textEditor();
         textEdit->setDocumentTitle(filename);
         textEdit->setPlainText(contents);
         

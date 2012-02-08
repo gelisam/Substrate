@@ -2,9 +2,9 @@
 #define MAIN_WINDOW_H
 
 #include <QtGui/QMainWindow>
-#include <QtGui/QTextEdit>
 
 #include "menu/MenuBar.h"
+#include "widget/TextEditor.h"
 #include "widget/StatusBar.h"
 
 
@@ -14,7 +14,7 @@ class MainWindow : public QMainWindow
   
 private:
   MenuBar* _menuBar;
-  QTextEdit* _textEditWidget;
+  TextEditor* _textEditor;
   StatusBar* _statusBar;
   
 public:
@@ -23,7 +23,7 @@ public:
   void init();
   
   MenuBar* menuBar() const;
-  QTextEdit* textEditWidget() const;
+  TextEditor* textEditor() const;
   StatusBar* statusBar() const;
 };
 

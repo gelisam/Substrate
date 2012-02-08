@@ -4,11 +4,11 @@
 MainWindow::MainWindow(QWidget* parent)
 : QMainWindow(parent)
 , _menuBar(new MenuBar(this))
-, _textEditWidget(new QTextEdit("Hello World", this))
+, _textEditor(new TextEditor(this))
 , _statusBar(new StatusBar(this))
 {
   setMenuBar(_menuBar);
-  setCentralWidget(_textEditWidget);
+  setCentralWidget(_textEditor);
   setStatusBar(_statusBar);
 }
 
@@ -22,8 +22,8 @@ MenuBar* MainWindow::menuBar() const {
   return _menuBar;
 }
 
-QTextEdit* MainWindow::textEditWidget() const {
-  return _textEditWidget;
+TextEditor* MainWindow::textEditor() const {
+  return _textEditor;
 }
 
 StatusBar* MainWindow::statusBar() const {

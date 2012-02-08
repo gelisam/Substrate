@@ -21,7 +21,7 @@ void RunTruncatedAction::init() {
 
 
 void RunTruncatedAction::act() {
-  QTextEdit* textEdit = app->mainWindow()->textEditWidget();
+  QTextEdit* textEdit = app->mainWindow()->textEditor();
   QTextCursor cursor = textEdit->textCursor();
   
   // Truncate up to and including the current line
