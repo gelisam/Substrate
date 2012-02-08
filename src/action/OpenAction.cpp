@@ -12,6 +12,8 @@ OpenAction::OpenAction(QObject* parent)
 }
 
 void OpenAction::init() {
+  setShortcut(QKeySequence::Open);
+  
   connect(this, SIGNAL(triggered()),
           this, SLOT(act()));
 }
