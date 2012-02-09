@@ -12,6 +12,7 @@ public:
   TextEditor(QWidget* parent=0);
   
   void init();
+  void open(const QString& filename);
 };
 
 #endif

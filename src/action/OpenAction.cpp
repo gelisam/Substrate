@@ -2,7 +2,6 @@
 
 #include "App.h"
 
-#include <QtCore/QFile>
 #include <QtGui/QFileDialog>
 
 
@@ -26,24 +25,6 @@ void OpenAction::act() {
     QString(), // current working directory
     "Bash scripts (*.bash *.sh);;All files (*.*)");
   if (!filename.isNull()) {
-    QFile file(filename);
-    if (file.open(QIODevice::ReadOnly | QIODevice::Text)) {
-      QString contents = QString::fromUtf8(file.readAll());
-      if (file.error() == QFile::NoError) {
-        QTextEdit* textEdit = app->mainWindow()->textEditor();
-        textEdit->setDocumentTitle(filename);
-        textEdit->setPlainText(contents);
-        
-        // success!
-        return;
-      }
-    }
-    
-    app->errorMessage(file.errorString());
-    
-    // error.
-    return;
+    app->mainWindow()->textEditor()->open(filename);
   }
-  
-  // cancelled.
 }
