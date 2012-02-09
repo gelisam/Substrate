@@ -11,6 +11,7 @@ TextEditor::TextEditor(QWidget* parent)
 }
 
 void TextEditor::init() {
+  open(":/resources/demo.sh");
 }
 
 

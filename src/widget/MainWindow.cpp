@@ -14,6 +14,7 @@ MainWindow::MainWindow(QWidget* parent)
 
 void MainWindow::init() {
   _menuBar->init();
+  _textEditor->init();
   _statusBar->init();
 }
 
