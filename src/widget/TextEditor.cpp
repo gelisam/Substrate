@@ -13,6 +13,8 @@ TextEditor::TextEditor(QWidget* parent)
 }
 
 void TextEditor::init() {
+  setUndoRedoEnabled(false);
+  
   open(":/resources/demo.sh");
   
   connect(this, SIGNAL(cursorPositionChanged()),
