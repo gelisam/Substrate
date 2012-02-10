@@ -13,6 +13,9 @@ public:
   
   void init();
   void open(const QString& filename);
+  
+private slots:
+  void colorize();
 };
 
 #endif
