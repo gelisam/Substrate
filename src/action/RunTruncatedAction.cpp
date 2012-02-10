@@ -20,6 +20,14 @@ void RunTruncatedAction::init() {
 }
 
 
+static QString preprocessScript(QString scriptContents) {
+  if (scriptContents.endsWith("|")) {
+    scriptContents.chop(1);
+  }
+  
+  return scriptContents;
+}
+
 void RunTruncatedAction::act() {
   QTextEdit* textEdit = app->mainWindow()->textEditor();
   QTextCursor cursor = textEdit->textCursor();
@@ -29,6 +37,6 @@ void RunTruncatedAction::act() {
   cursor.movePosition(QTextCursor::Start, QTextCursor::KeepAnchor);
   
   QTextDocumentFragment selection = cursor.selection();
-  QString scriptContents = selection.toPlainText();
+  QString scriptContents = preprocessScript(selection.toPlainText());
   app->oven()->cook(scriptContents);
 }
