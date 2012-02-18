@@ -1,0 +1,26 @@
+Substrate feedback
+===
+
+Here are the bugs and feature requests found in or inspired by the
+last iteration.
+
+bugs:
+- Down key always moves cursor to first character of the line.
+- Can't move below a line which wraps around using the Down key.
+- Enter key always scrolls to the top.
+- Even with "All files" selected, File/Open cannot open the file "myscript".
+
+feature request:
+- Use "clear" instead of "echo '==='" in the demo.
+- Easy way to write text with substitutions, repeating "echo" is cumbersome.
+- Easy way to diff with some manually-written target text.
+- Easy way to apply script to different input and save the different outputs.
+- Easy way to save the script.
+- Maybe Ctrl-R instead of F5? Something closer to the home key.
+- Could pressing End go to the end of the line, not the end of the script?
+- Cache sub-results for long scripts
+- Don't blank the output until the new output is completely computed
+- A cancel button if the script loops
+- A mechanism to enter special ASCII characters
+- A variant of sed which works through newlines
+- An easy way to run the truncated text + some post-processing
