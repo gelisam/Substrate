@@ -1,8 +1,36 @@
-Substrate feedback
+Recent feedback
 ===
 
 Here are the bugs and feature requests found in or inspired by the
 last iteration.
+
+bugs:
+- ...
+
+feature request:
+- ...
+
+
+Todo now
+===
+
+And here are the tasks which are planned for the next iteration and a half.
+(Planning for exactly one iteration is dumb: by how much do you adjust your
+velocity if you finish early?)
+
+Story 5: I can enter different inputs for the script.
+Story 6: I can run the script on a series of different inputs.
+Story 7: I can save the script and its inputs as a single project.
+---
+Story 8: I can write multiple scripts which call each other.
+Story 9: I can write a script which applies multiple inputs to another script.
+
+
+Todo later
+===
+
+Here are the bugs and feature requests found in or inspired by past iterations.
+Things that might be worth doing some day, but not right now.
 
 bugs:
 - Down key always moves cursor to first character of the line.
@@ -14,8 +42,6 @@ feature request:
 - Use "clear" instead of "echo '==='" in the demo.
 - Easy way to write text with substitutions, repeating "echo" is cumbersome.
 - Easy way to diff with some manually-written target text.
-- Easy way to apply script to different input and save the different outputs.
-- Easy way to save the script.
 - Maybe Ctrl-R instead of F5? Something closer to the home key.
 - Could pressing End go to the end of the line, not the end of the script?
 - Cache sub-results for long scripts
