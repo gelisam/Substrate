@@ -4,6 +4,7 @@
 #include <QtGui/QMenuBar>
 
 #include "menu/FileMenu.h"
+#include "menu/ProjectMenu.h"
 #include "menu/RunMenu.h"
 
 
@@ -13,6 +14,7 @@ class MenuBar : public QMenuBar
   
 private:
   FileMenu* _fileMenu;
+  ProjectMenu* _projectMenu;
   RunMenu* _runMenu;
   
 public:
@@ -21,6 +23,7 @@ public:
   void init();
   
   FileMenu* fileMenu() const;
+  ProjectMenu* projectMenu() const;
   RunMenu* runMenu() const;
 };
 
