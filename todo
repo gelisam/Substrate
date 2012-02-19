@@ -1,10 +1,6 @@
 Todo now
 ===
 
-And here are the tasks which are planned for the next iteration and a half.
-(Planning for exactly one iteration is dumb: by how much do you adjust your
-velocity if you finish early?)
-
 Story 5: I can enter different inputs for the script.
 Story 6: I can run the script on a series of different inputs.
 Story 7: I can save the script and its inputs as a single project.
@@ -13,11 +9,13 @@ Story 8: I can write multiple scripts which call each other.
 Story 9: I can write a script which applies multiple inputs to another script.
 
 
+Above are the tasks which are planned for the current iteration, plus a few more.
+
+
 Recent feedback
 ===
 
-Here are the bugs and feature requests found in or inspired by the
-last iteration.
+Here are the bugs and feature requests found in or inspired by the current iteration.
 
 bugs:
 - ...
@@ -29,7 +27,7 @@ feature request:
 Todo later
 ===
 
-Here are the bugs and feature requests found in or inspired by past iterations.
+And here are the bugs and feature requests found in or inspired by past iterations.
 Things that might be worth doing some day, but not right now.
 
 bugs:
