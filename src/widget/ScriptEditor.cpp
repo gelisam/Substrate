@@ -1,4 +1,4 @@
-#include "widget/TextEditor.h"
+#include "widget/ScriptEditor.h"
 
 #include "App.h"
 
@@ -7,12 +7,12 @@
 #include <QtGui/QTextCharFormat>
 
 
-TextEditor::TextEditor(QWidget* parent)
+ScriptEditor::ScriptEditor(QWidget* parent)
 : QTextEdit(parent)
 {
 }
 
-void TextEditor::init() {
+void ScriptEditor::init() {
   open(":/resources/demo.sh");
   
   // clear undo buffer
@@ -24,7 +24,7 @@ void TextEditor::init() {
 }
 
 
-void TextEditor::open(const QString& filename) {
+void ScriptEditor::open(const QString& filename) {
   QFile file(filename);
   if (file.open(QIODevice::ReadOnly | QIODevice::Text)) {
     QString contents = QString::fromUtf8(file.readAll());
@@ -42,7 +42,7 @@ void TextEditor::open(const QString& filename) {
   app->errorMessage(file.errorString());
 }
 
-void TextEditor::keyPressEvent(QKeyEvent* e) {
+void ScriptEditor::keyPressEvent(QKeyEvent* e) {
   if (e == QKeySequence::Undo) {
     QTextEdit::keyPressEvent(e);
   } else {
@@ -56,7 +56,7 @@ void TextEditor::keyPressEvent(QKeyEvent* e) {
 }
 
 
-void TextEditor::colorize() {
+void ScriptEditor::colorize() {
   QTextCursor cursor = textCursor();
   cursor.joinPreviousEditBlock();
   {

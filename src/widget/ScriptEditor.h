@@ -1,16 +1,16 @@
-#ifndef TEXT_EDITOR_H
-#define TEXT_EDITOR_H
+#ifndef SCRIPT_EDITOR_H
+#define SCRIPT_EDITOR_H
 
 #include <QtGui/QTextEdit>
 #include <QtGui/QKeyEvent>
 
 
-class TextEditor : public QTextEdit
+class ScriptEditor : public QTextEdit
 {
   Q_OBJECT;
   
 public:
-  TextEditor(QWidget* parent=0);
+  ScriptEditor(QWidget* parent=0);
   
   void init();
   void open(const QString& filename);
