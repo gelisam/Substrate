@@ -1,8 +1,6 @@
 Todo now
 ===
 
-Story 7: I can save the script and its inputs as a single project.
----
 Story 8: I can write multiple scripts which call each other.
 Story 9: I can write a script which applies multiple inputs to another script.
 
