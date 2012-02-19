@@ -49,7 +49,7 @@ MainWindow* Application::mainWindow() const {
 
 
 InputEditor* Application::inputEditor() const {
-  return _mainWindow->centralWidget()->inputEditor();
+  return _mainWindow->centralWidget()->inputPane()->inputEditor();
 }
 
 ScriptEditor* Application::scriptEditor() const {
