@@ -1,16 +1,3 @@
-Recent feedback
-===
-
-Here are the bugs and feature requests found in or inspired by the
-last iteration.
-
-bugs:
-- ...
-
-feature request:
-- ...
-
-
 Todo now
 ===
 
@@ -24,6 +11,19 @@ Story 7: I can save the script and its inputs as a single project.
 ---
 Story 8: I can write multiple scripts which call each other.
 Story 9: I can write a script which applies multiple inputs to another script.
+
+
+Recent feedback
+===
+
+Here are the bugs and feature requests found in or inspired by the
+last iteration.
+
+bugs:
+- ...
+
+feature request:
+- ...
 
 
 Todo later
