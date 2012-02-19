@@ -8,7 +8,7 @@
 
 
 RunTruncatedAction::RunTruncatedAction(QObject* parent)
-: QAction("Run up to &Current Line", parent)
+: QAction("Up to &Current Line", parent)
 {
 }
 

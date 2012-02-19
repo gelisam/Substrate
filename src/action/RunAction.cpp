@@ -4,7 +4,7 @@
 
 
 RunAction::RunAction(QObject* parent)
-: QAction("Run &Entire Script", parent)
+: QAction("&Entire Script", parent)
 {
 }
 
