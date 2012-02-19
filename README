@@ -1,4 +1,4 @@
-Substrate 0.1.0
+Substrate 0.2.0
 ===
 
 Substrate is a GUI tool which makes it easy to build text processing
@@ -10,9 +10,9 @@ should.
 
 How to use Substrate
 ---
-Use File/Open to load a Bash script into our plain, Notepad-style text editor.
-Don't worry, we don't plan to stay so plain and platform-specific for too long.
+Use the top pane to edit the current input for your script.
+You can add alternate inputs using Project/Add Input.
 
-Edit away, and when you are curious about the intermediate output of the
-current line, hit F5 and Substrate will run the script up to and including the
-current line, stripping any trailing pipe character if necessary.
+Use the bottom pane to edit your script.
+You can debug your script by pressing F5, which will run the script up to and
+including the current line.
