@@ -29,8 +29,8 @@ static QString preprocessScript(QString scriptContents) {
 }
 
 void RunTruncatedAction::act() {
-  QTextEdit* inputEditor = app->mainWindow()->centralWidget()->inputEditor();
-  QTextEdit* scriptEditor = app->mainWindow()->centralWidget()->scriptEditor();
+  QTextEdit* inputEditor = app->inputEditor();
+  QTextEdit* scriptEditor = app->scriptEditor();
   
   QString input = inputEditor->toPlainText();
   

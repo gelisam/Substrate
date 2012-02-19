@@ -26,6 +26,9 @@ public:
   
   Oven* oven() const;
   MainWindow* mainWindow() const;
+  
+  InputEditor* inputEditor() const;
+  ScriptEditor* scriptEditor() const;
 };
 
 extern Application* app;

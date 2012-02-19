@@ -46,3 +46,12 @@ Oven* Application::oven() const {
 MainWindow* Application::mainWindow() const {
   return _mainWindow;
 }
+
+
+InputEditor* Application::inputEditor() const {
+  return _mainWindow->centralWidget()->inputEditor();
+}
+
+ScriptEditor* Application::scriptEditor() const {
+  return _mainWindow->centralWidget()->scriptEditor();
+}

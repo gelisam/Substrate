@@ -25,6 +25,6 @@ void OpenAction::act() {
     QString(), // current working directory
     "Bash scripts (*.bash *.sh);;All files (*.*)");
   if (!filename.isNull()) {
-    app->mainWindow()->centralWidget()->scriptEditor()->open(filename);
+    app->scriptEditor()->open(filename);
   }
 }
