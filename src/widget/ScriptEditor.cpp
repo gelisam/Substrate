@@ -2,17 +2,18 @@
 
 #include "App.h"
 
-#include <QtCore/QFile>
 #include <QtGui/QTextCursor>
 #include <QtGui/QTextCharFormat>
 
 
 ScriptEditor::ScriptEditor(QWidget* parent)
-: QTextEdit(parent)
+: TextEditor(parent)
 {
 }
 
 void ScriptEditor::init() {
+  TextEditor::init();
+  
   open(":/resources/demo.sh");
   
   // clear undo buffer
@@ -24,22 +25,15 @@ void ScriptEditor::init() {
 }
 
 
-void ScriptEditor::open(const QString& filename) {
-  QFile file(filename);
-  if (file.open(QIODevice::ReadOnly | QIODevice::Text)) {
-    QString contents = QString::fromUtf8(file.readAll());
-    if (file.error() == QFile::NoError) {
-      setDocumentTitle(filename);
-      setPlainText(contents);
-      
-      // success!
-      colorize();
-      return;
-    }
+bool ScriptEditor::open(const QString& filename) {
+  if (TextEditor::open(filename)) {
+    // success!
+    colorize();
+    return true;
   }
   
   // error.
-  app->errorMessage(file.errorString());
+  return false;
 }
 
 void ScriptEditor::keyPressEvent(QKeyEvent* e) {

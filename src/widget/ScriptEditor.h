@@ -1,19 +1,20 @@
 #ifndef SCRIPT_EDITOR_H
 #define SCRIPT_EDITOR_H
 
-#include <QtGui/QTextEdit>
+#include "widget/TextEditor.h"
+
 #include <QtGui/QKeyEvent>
 
 
-class ScriptEditor : public QTextEdit
+class ScriptEditor : public TextEditor
 {
   Q_OBJECT;
   
 public:
   ScriptEditor(QWidget* parent=0);
   
-  void init();
-  void open(const QString& filename);
+  virtual void init();
+  virtual bool open(const QString& filename);
   
 protected:
   virtual void keyPressEvent(QKeyEvent* e);
