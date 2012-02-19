@@ -4,7 +4,7 @@
 #include <QtGui/QMainWindow>
 
 #include "menu/MenuBar.h"
-#include "widget/ScriptEditor.h"
+#include "widget/CentralWidget.h"
 #include "widget/StatusBar.h"
 
 
@@ -14,7 +14,7 @@ class MainWindow : public QMainWindow
   
 private:
   MenuBar* _menuBar;
-  ScriptEditor* _scriptEditor;
+  CentralWidget* _centralWidget;
   StatusBar* _statusBar;
   
 public:
@@ -23,7 +23,7 @@ public:
   void init();
   
   MenuBar* menuBar() const;
-  ScriptEditor* scriptEditor() const;
+  CentralWidget* centralWidget() const;
   StatusBar* statusBar() const;
 };
 

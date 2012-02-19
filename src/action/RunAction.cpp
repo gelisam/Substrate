@@ -17,6 +17,6 @@ void RunAction::init() {
 
 
 void RunAction::act() {
-  QTextEdit* textEdit = app->mainWindow()->scriptEditor();
+  QTextEdit* textEdit = app->mainWindow()->centralWidget()->scriptEditor();
   app->oven()->cook(textEdit->toPlainText());
 }

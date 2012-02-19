@@ -29,7 +29,7 @@ static QString preprocessScript(QString scriptContents) {
 }
 
 void RunTruncatedAction::act() {
-  QTextEdit* textEdit = app->mainWindow()->scriptEditor();
+  QTextEdit* textEdit = app->mainWindow()->centralWidget()->scriptEditor();
   QTextCursor cursor = textEdit->textCursor();
   
   // Truncate up to and including the current line

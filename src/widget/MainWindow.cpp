@@ -4,17 +4,17 @@
 MainWindow::MainWindow(QWidget* parent)
 : QMainWindow(parent)
 , _menuBar(new MenuBar(this))
-, _scriptEditor(new ScriptEditor(this))
+, _centralWidget(new CentralWidget(this))
 , _statusBar(new StatusBar(this))
 {
   setMenuBar(_menuBar);
-  setCentralWidget(_scriptEditor);
+  setCentralWidget(_centralWidget);
   setStatusBar(_statusBar);
 }
 
 void MainWindow::init() {
   _menuBar->init();
-  _scriptEditor->init();
+  _centralWidget->init();
   _statusBar->init();
 }
 
@@ -23,8 +23,8 @@ MenuBar* MainWindow::menuBar() const {
   return _menuBar;
 }
 
-ScriptEditor* MainWindow::scriptEditor() const {
-  return _scriptEditor;
+CentralWidget* MainWindow::centralWidget() const {
+  return _centralWidget;
 }
 
 StatusBar* MainWindow::statusBar() const {
