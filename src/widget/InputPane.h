@@ -10,15 +10,12 @@ class InputPane : public QTabWidget
 {
   Q_OBJECT;
   
-private:
-  InputEditor* _inputEditor;
-  
 public:
   InputPane(QWidget* parent=0);
   
   void init();
   
-  InputEditor* inputEditor() const;
+  InputEditor* currentInputEditor() const;
 };
 
 #endif

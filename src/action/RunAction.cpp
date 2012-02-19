@@ -17,7 +17,7 @@ void RunAction::init() {
 
 
 void RunAction::act() {
-  QTextEdit* inputEditor = app->inputEditor();
+  QTextEdit* inputEditor = app->currentInputEditor();
   QTextEdit* scriptEditor = app->scriptEditor();
   
   QString input = inputEditor->toPlainText();

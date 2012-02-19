@@ -3,16 +3,15 @@
 
 InputPane::InputPane(QWidget* parent)
 : QTabWidget(parent)
-, _inputEditor(new InputEditor(this))
 {
-  addTab(_inputEditor, "Input");
+  addTab(new InputEditor(this), "Input");
 }
 
 void InputPane::init() {
-  _inputEditor->init();
+  currentInputEditor()->init();
 }
 
 
-InputEditor* InputPane::inputEditor() const {
-  return _inputEditor;
+InputEditor* InputPane::currentInputEditor() const {
+  return qobject_cast<InputEditor*>(currentWidget());
 }

@@ -48,8 +48,8 @@ MainWindow* Application::mainWindow() const {
 }
 
 
-InputEditor* Application::inputEditor() const {
-  return _mainWindow->centralWidget()->inputPane()->inputEditor();
+InputEditor* Application::currentInputEditor() const {
+  return _mainWindow->centralWidget()->inputPane()->currentInputEditor();
 }
 
 ScriptEditor* Application::scriptEditor() const {
