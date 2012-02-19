@@ -3,6 +3,7 @@
 
 #include <QtGui/QWidget>
 
+#include "widget/InputEditor.h"
 #include "widget/ScriptEditor.h"
 
 #include <QtGui/QVBoxLayout>
@@ -14,6 +15,7 @@ class CentralWidget : public QWidget
   
 private:
   QVBoxLayout* _layout;
+  InputEditor* _inputEditor;
   ScriptEditor* _scriptEditor;
   
 public:
@@ -21,6 +23,7 @@ public:
   
   void init();
   
+  InputEditor* inputEditor() const;
   ScriptEditor* scriptEditor() const;
 };
 

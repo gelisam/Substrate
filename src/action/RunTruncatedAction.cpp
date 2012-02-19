@@ -29,8 +29,12 @@ static QString preprocessScript(QString scriptContents) {
 }
 
 void RunTruncatedAction::act() {
-  QTextEdit* textEdit = app->mainWindow()->centralWidget()->scriptEditor();
-  QTextCursor cursor = textEdit->textCursor();
+  QTextEdit* inputEditor = app->mainWindow()->centralWidget()->inputEditor();
+  QTextEdit* scriptEditor = app->mainWindow()->centralWidget()->scriptEditor();
+  
+  QString input = inputEditor->toPlainText();
+  
+  QTextCursor cursor = scriptEditor->textCursor();
   
   // Truncate up to and including the current line
   cursor.movePosition(QTextCursor::EndOfLine, QTextCursor::MoveAnchor);
@@ -38,5 +42,6 @@ void RunTruncatedAction::act() {
   
   QTextDocumentFragment selection = cursor.selection();
   QString scriptContents = preprocessScript(selection.toPlainText());
-  app->oven()->cook(scriptContents);
+  
+  app->oven()->cook(input, scriptContents);
 }

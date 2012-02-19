@@ -17,6 +17,11 @@ void RunAction::init() {
 
 
 void RunAction::act() {
-  QTextEdit* textEdit = app->mainWindow()->centralWidget()->scriptEditor();
-  app->oven()->cook(textEdit->toPlainText());
+  QTextEdit* inputEditor = app->mainWindow()->centralWidget()->inputEditor();
+  QTextEdit* scriptEditor = app->mainWindow()->centralWidget()->scriptEditor();
+  
+  QString input = inputEditor->toPlainText();
+  QString scriptContents = scriptEditor->toPlainText();
+  
+  app->oven()->cook(input, scriptContents);
 }

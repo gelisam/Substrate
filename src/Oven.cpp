@@ -4,6 +4,7 @@
 
 #include <QtCore/QTemporaryFile>
 #include <QtCore/QProcess>
+#include <QtCore/QTextStream>
 
 
 Oven::Oven(QObject* parent)
@@ -15,7 +16,7 @@ void Oven::init() {
 }
 
 
-void Oven::cook(QString scriptContents) {
+void Oven::cook(QString input, QString scriptContents) {
   QTemporaryFile file;
   QProcess process;
   
@@ -28,6 +29,11 @@ void Oven::cook(QString scriptContents) {
       
       process.setProcessChannelMode(QProcess::ForwardedChannels);
       process.start("bash", QStringList() << filename);
+      
+      QTextStream inputStream(&process);
+      inputStream << input;
+      inputStream.flush();
+      process.closeWriteChannel();
       
       if (process.waitForStarted() && process.waitForFinished()) {
         // success!
