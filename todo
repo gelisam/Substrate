@@ -15,6 +15,7 @@ Here are the bugs and feature requests found in or inspired by the current itera
 
 bugs:
 - Memory leak? Make sure closing tabs (through loading) deletes them.
+- When saving, it's hard to select (and overwrite) an existing directory.
 
 feature request:
 - ...

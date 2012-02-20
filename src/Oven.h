@@ -12,7 +12,7 @@ public:
   Oven(QObject* parent=0);
   
   void init();
-  void cook(QString input, QString scriptContents);
+  void cook(QString inputContents, QString scriptContents);
 };
 
 #endif

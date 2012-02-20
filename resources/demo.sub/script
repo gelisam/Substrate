@@ -1,8 +1,8 @@
 #!/bin/bash
 X="$(cat)"
-echo -n "$X " # Try F6 here.
-clear
+echo -n "$X " # Try Shift+F5 here.
 
+clear
 echo "1) Move here and press F5." |
 tr [a-z] [A-Z]
 echo "2) Move here and press F5."

@@ -16,7 +16,7 @@ void Oven::init() {
 }
 
 
-void Oven::cook(QString input, QString scriptContents) {
+void Oven::cook(QString inputContents, QString scriptContents) {
   QTemporaryFile file;
   QProcess process;
   
@@ -31,7 +31,7 @@ void Oven::cook(QString input, QString scriptContents) {
       process.start("bash", QStringList() << filename);
       
       QTextStream inputStream(&process);
-      inputStream << input;
+      inputStream << inputContents;
       inputStream.flush();
       process.closeWriteChannel();
       

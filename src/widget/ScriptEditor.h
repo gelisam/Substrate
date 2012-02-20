@@ -16,6 +16,9 @@ public:
   virtual void init();
   virtual bool open(const QString& filename);
   
+  static QString preprocessScript(QString scriptContents);
+  QString truncatedContents() const;
+  
 protected:
   virtual void keyPressEvent(QKeyEvent* e);
   
