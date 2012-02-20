@@ -1,5 +1,7 @@
 <!DOCTYPE RCC><RCC version="1.0">
 <qresource>
-<file>resources/demo.sh</file>
+<file>resources/demo.sub/inputs/0</file>
+<file>resources/demo.sub/inputs/1</file>
+<file>resources/demo.sub/script</file>
 </qresource>
 </RCC>

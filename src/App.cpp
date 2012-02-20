@@ -19,6 +19,8 @@ void Application::init() {
   
   // initialize fields here instead of in the constructor
   // so that child initializations can access the app global.
+  _oven->init();
+  _project->init();
   _mainWindow->init();
 }
 

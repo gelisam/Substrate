@@ -17,14 +17,14 @@ void SaveAsAction::init() {
 
 
 void SaveAsAction::act() {
-  QString filename = QFileDialog::getSaveFileName(
+  QString dirname = QFileDialog::getSaveFileName(
     app->mainWindow(),
     QString(), // default caption
     QString(), // current working directory
     "Substrate folders (*.sub);;All files (*.*)");
-  if (!filename.isNull()) {
-    if (!filename.endsWith(".sub")) filename.append(".sub");
+  if (!dirname.isNull()) {
+    if (!dirname.endsWith(".sub")) dirname.append(".sub");
     
-    app->project()->save(filename);
+    app->project()->save(dirname);
   }
 }

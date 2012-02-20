@@ -19,12 +19,8 @@ void OpenAction::init() {
 
 
 void OpenAction::act() {
-  QString filename = QFileDialog::getOpenFileName(
-    app->mainWindow(),
-    "Open Bash Script",
-    QString(), // current working directory
-    "Bash scripts (*.bash *.sh);;All files (*.*)");
-  if (!filename.isNull()) {
-    app->scriptEditor()->open(filename);
+  QString dirname = QFileDialog::getExistingDirectory(app->mainWindow());
+  if (!dirname.isNull()) {
+    app->project()->load(dirname);
   }
 }

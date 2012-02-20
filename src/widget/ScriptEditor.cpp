@@ -14,8 +14,6 @@ ScriptEditor::ScriptEditor(QWidget* parent)
 void ScriptEditor::init() {
   TextEditor::init();
   
-  open(":/resources/demo.sh");
-  
   // clear undo buffer
   setUndoRedoEnabled(false);
   setUndoRedoEnabled(true);
