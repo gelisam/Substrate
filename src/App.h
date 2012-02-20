@@ -4,6 +4,7 @@
 #include <QtGui/QApplication>
 
 #include "Oven.h"
+#include "project/Project.h"
 #include "widget/MainWindow.h"
 
 
@@ -13,6 +14,7 @@ class Application : public QApplication
   
 private:
   Oven* _oven;
+  Project* _project;
   MainWindow* _mainWindow;
   
 public:
@@ -25,6 +27,7 @@ public:
   void errorMessage(const QString& message) const;
   
   Oven* oven() const;
+  Project* project() const;
   MainWindow* mainWindow() const;
   
   InputEditor* currentInputEditor() const;

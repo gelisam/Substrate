@@ -14,7 +14,7 @@ Recent feedback
 Here are the bugs and feature requests found in or inspired by the current iteration.
 
 bugs:
-- ...
+- Memory leak? Make sure closing tabs (through loading) deletes them.
 
 feature request:
 - ...
