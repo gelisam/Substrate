@@ -16,7 +16,7 @@ void StatusBar::init() {
 
 
 void StatusBar::errorMessage(const QString& message) {
-  showMessage(message, 1500);
+  showMessage(message, 2000);
   
   // important: set to true after calling showMessage
   // so that messageChanged doesn't reset the flag.
