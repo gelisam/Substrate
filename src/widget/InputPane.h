@@ -15,6 +15,7 @@ public:
   
   void init();
   
+  InputEditor* addInputEditor(QString initialContents=QString());
   InputEditor* currentInputEditor() const;
 };
 

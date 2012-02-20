@@ -17,6 +17,5 @@ void AddInputAction::init() {
 void AddInputAction::act() {
   InputPane* inputPane = app->mainWindow()->centralWidget()->inputPane();
   
-  int tabIndex = inputPane->addTab(new InputEditor(inputPane), "Input");
-  inputPane->setCurrentIndex(tabIndex);
+  inputPane->addInputEditor();
 }
