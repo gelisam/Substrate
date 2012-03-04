@@ -13,9 +13,9 @@ private:
   bool showingErrorMessage;
   
 public:
-  StatusBar(QWidget* parent=0);
-  
+  StatusBar(QWidget* parent);
   void init();
+  
   void errorMessage(const QString& message);
   
 protected:

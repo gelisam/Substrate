@@ -19,8 +19,7 @@ private:
   ScriptEditor* _scriptEditor;
   
 public:
-  CentralWidget(QWidget* parent=0);
-  
+  CentralWidget(QWidget* parent);
   void init();
   
   InputPane* inputPane() const;

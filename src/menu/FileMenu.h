@@ -18,8 +18,7 @@ private:
   QuitAction* _quitAction;
   
 public:
-  FileMenu(QWidget* parent=0);
-  
+  FileMenu(QWidget* parent);
   void init();
   
   OpenAction* openAction() const;

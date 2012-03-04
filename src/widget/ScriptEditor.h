@@ -11,9 +11,9 @@ class ScriptEditor : public TextEditor
   Q_OBJECT;
   
 public:
-  ScriptEditor(QWidget* parent=0);
-  
+  ScriptEditor(QWidget* parent);
   virtual void init();
+  
   virtual bool open(const QString& filename);
   
   static QString preprocessScript(QString scriptContents);

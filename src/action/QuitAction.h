@@ -9,8 +9,7 @@ class QuitAction : public QAction
   Q_OBJECT;
   
 public:
-  QuitAction(QObject* parent=0);
-  
+  QuitAction(QObject* parent);
   void init();
 };
 

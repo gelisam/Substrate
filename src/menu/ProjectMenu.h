@@ -14,8 +14,7 @@ private:
   AddInputAction* _addInputAction;
   
 public:
-  ProjectMenu(QWidget* parent=0);
-  
+  ProjectMenu(QWidget* parent);
   void init();
   
   AddInputAction* addInputAction() const;

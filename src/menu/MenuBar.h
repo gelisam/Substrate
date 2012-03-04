@@ -18,8 +18,7 @@ private:
   RunMenu* _runMenu;
   
 public:
-  MenuBar(QWidget* parent=0);
-  
+  MenuBar(QWidget* parent);
   void init();
   
   FileMenu* fileMenu() const;

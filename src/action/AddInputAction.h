@@ -9,8 +9,7 @@ class AddInputAction : public QAction
   Q_OBJECT;
   
 public:
-  AddInputAction(QObject* parent=0);
-  
+  AddInputAction(QObject* parent);
   void init();
   
 private slots:

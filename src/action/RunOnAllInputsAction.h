@@ -9,8 +9,7 @@ class RunOnAllInputsAction : public QAction
   Q_OBJECT;
   
 public:
-  RunOnAllInputsAction(QObject* parent=0);
-  
+  RunOnAllInputsAction(QObject* parent);
   void init();
   
 private slots:

@@ -9,8 +9,7 @@ class SaveAsAction : public QAction
   Q_OBJECT;
   
 public:
-  SaveAsAction(QObject* parent=0);
-  
+  SaveAsAction(QObject* parent);
   void init();
   
 private slots:

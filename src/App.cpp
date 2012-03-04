@@ -5,9 +5,9 @@ Application* app = NULL;
 
 Application::Application(int argc, char** argv)
 : QApplication(argc, argv)
-, _oven(new Oven)
-, _project(new Project)
-, _mainWindow(new MainWindow)
+, _oven(new Oven(this))
+, _project(new Project(this))
+, _mainWindow(new MainWindow(NULL))
 {
   app = this;
 }

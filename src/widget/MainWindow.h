@@ -18,8 +18,7 @@ private:
   StatusBar* _statusBar;
   
 public:
-  MainWindow(QWidget* parent=0);
-  
+  MainWindow(QWidget* parent);
   void init();
   
   MenuBar* menuBar() const;

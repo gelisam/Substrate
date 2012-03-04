@@ -9,9 +9,9 @@ class Oven : public QObject
   Q_OBJECT;
   
 public:
-  Oven(QObject* parent=0);
-  
+  Oven(QObject* parent);
   void init();
+  
   void cook(QString inputContents, QString scriptContents);
 };
 

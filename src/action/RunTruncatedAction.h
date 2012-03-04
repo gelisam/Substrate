@@ -9,8 +9,7 @@ class RunTruncatedAction : public QAction
   Q_OBJECT;
   
 public:
-  RunTruncatedAction(QObject* parent=0);
-  
+  RunTruncatedAction(QObject* parent);
   void init();
   
 private slots:

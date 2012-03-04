@@ -9,8 +9,7 @@ class RunAction : public QAction
   Q_OBJECT;
   
 public:
-  RunAction(QObject* parent=0);
-  
+  RunAction(QObject* parent);
   void init();
   
 private slots:

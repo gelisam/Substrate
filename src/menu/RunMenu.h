@@ -18,8 +18,7 @@ private:
   RunOnAllInputsAction* _runOnAllInputsAction;
   
 public:
-  RunMenu(QWidget* parent=0);
-  
+  RunMenu(QWidget* parent);
   void init();
   
   RunTruncatedAction* runTruncatedAction() const;

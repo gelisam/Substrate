@@ -11,8 +11,7 @@ class InputPane : public QTabWidget
   Q_OBJECT;
   
 public:
-  InputPane(QWidget* parent=0);
-  
+  InputPane(QWidget* parent);
   void init();
   
   InputEditor* addInputEditor(QString initialContents=QString());

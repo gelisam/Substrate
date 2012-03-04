@@ -9,8 +9,7 @@ class InputEditor : public TextEditor
   Q_OBJECT;
   
 public:
-  InputEditor(QWidget* parent=0);
-  
+  InputEditor(QWidget* parent);
   virtual void init();
 };
 

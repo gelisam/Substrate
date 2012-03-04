@@ -9,8 +9,7 @@ class OpenAction : public QAction
   Q_OBJECT;
   
 public:
-  OpenAction(QObject* parent=0);
-  
+  OpenAction(QObject* parent);
   void init();
   
 private slots:
