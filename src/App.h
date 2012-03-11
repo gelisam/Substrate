@@ -4,7 +4,7 @@
 #include <QtGui/QApplication>
 
 #include "Oven.h"
-#include "project/Project.h"
+#include "Project.h"
 #include "widget/MainWindow.h"
 
 
