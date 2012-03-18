@@ -24,6 +24,13 @@ public:
   MenuBar* menuBar() const;
   CentralWidget* centralWidget() const;
   StatusBar* statusBar() const;
+  
+protected:
+  virtual void changeEvent(QEvent* event);
+  
+signals:
+  void activated();
+  void deactivated();
 };
 
 #endif

@@ -19,6 +19,17 @@ void MainWindow::init() {
 }
 
 
+void MainWindow::changeEvent(QEvent* event) {
+  if (event->type() == QEvent::ActivationChange) {
+    if (isActiveWindow()) {
+      emit activated();
+    } else {
+      emit deactivated();
+    }
+  }
+}
+
+
 MenuBar* MainWindow::menuBar() const {
   return _menuBar;
 }
