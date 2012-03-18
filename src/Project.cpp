@@ -78,6 +78,21 @@ bool Project::save() const {
   QDir dir(_filename);
   dir.mkpath(".");
   
+  // store the version number,
+  // in a format which I plan to use in the future.
+  {
+    QString filename = QString("values.txt");
+    QFile file(dir.absoluteFilePath(filename));
+    if (file.open(QFile::WriteOnly)) {
+      QTextStream out(&file);
+      
+      out << "Substrate_version: 0.3";
+    } else {
+      app->errorMessage(file.errorString());
+      return false;
+    }
+  }
+  
   InputPane* inputPane = app->mainWindow()->centralWidget()->inputPane();
   dir.mkpath("inputs");
   for(int i=0; i<inputPane->count(); ++i) {
