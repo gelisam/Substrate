@@ -24,7 +24,7 @@ Here are the bugs and feature requests found in or inspired by the
 current iteration.
 
 bugs:
-- ...
+- The application starts in the background.
 
 feature request:
 - ...
