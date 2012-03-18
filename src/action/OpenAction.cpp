@@ -21,6 +21,8 @@ void OpenAction::init() {
 void OpenAction::act() {
   QString dirname = QFileDialog::getExistingDirectory(app->mainWindow());
   if (!dirname.isNull()) {
-    app->project()->load(dirname);
+    Project* project = app->project();
+    project->setFilename(dirname);
+    project->reload();
   }
 }

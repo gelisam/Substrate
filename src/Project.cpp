@@ -13,12 +13,22 @@ Project::Project(QObject* parent)
 }
 
 void Project::init() {
-  load(":/resources/demo.sub");
+  setFilename(":/resources/demo.sub");
+  reload();
 }
 
 
-bool Project::load(QString dirname) {
-  QDir dir(dirname);
+QString Project::filename() const {
+  return _filename;
+}
+
+void Project::setFilename(QString filename) {
+  _filename = filename;
+}
+
+
+bool Project::reload() {
+  QDir dir(_filename);
   
   InputPane* inputPane = app->mainWindow()->centralWidget()->inputPane();
   inputPane->clear();
@@ -59,8 +69,13 @@ bool Project::load(QString dirname) {
   return true;
 }
 
-bool Project::save(QString dirname) const {
-  QDir dir(dirname);
+bool Project::save() const {
+  if (_filename.isEmpty()) {
+    app->errorMessage("no filename");
+    return false;
+  }
+  
+  QDir dir(_filename);
   dir.mkpath(".");
   
   InputPane* inputPane = app->mainWindow()->centralWidget()->inputPane();

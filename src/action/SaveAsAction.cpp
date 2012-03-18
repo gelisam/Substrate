@@ -25,6 +25,8 @@ void SaveAsAction::act() {
   if (!dirname.isNull()) {
     if (!dirname.endsWith(".sub")) dirname.append(".sub");
     
-    app->project()->save(dirname);
+    Project* project = app->project();
+    project->setFilename(dirname);
+    project->save();
   }
 }
