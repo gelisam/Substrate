@@ -11,6 +11,11 @@ Story 14: I can perform story 13 from the command line, or when a file change
           is detected.
 Story 15: I can write multiple parallel scripts (all with the same input).
 Story 16: I can write multiple sequential scripts (feeding one into the other).
+Story 17: I can reload and run the entire project.
+Story 18: Simple filesystem-backed key-value store with one file per key.
+Story 19: The project reloads when the filesystem copy of the store changes.
+Story 20: Specialized store interface for strings, integers, and string arrays.
+Story 21: The project stores the active input tab.
 
 
 Above are the tasks which are planned for the current iteration,
@@ -25,9 +30,10 @@ current iteration.
 
 bugs:
 - The application starts in the background.
+- Unknown error when trying to save the default project.
 
 feature request:
-- ...
+- don't auto-save if the data isn't dirty.
 
 
 Todo later
