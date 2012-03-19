@@ -4,6 +4,7 @@
 
 #include <QtCore/QDir>
 #include <QtCore/QFile>
+#include <QtCore/QFileInfo>
 #include <QtCore/QTextStream>
 
 #include <assert.h>
@@ -37,15 +38,19 @@ void DataStore::setFilename(const QString& filename) {
 }
 
 
-bool DataStore::reload() {
-  if (_filename.isEmpty()) {
-    app->errorMessage("no filename");
-    return false;
+static bool load(
+  const QString& filename,
+  QMap<QString, QString>& cache,
+  const QString& folder
+) {
+  QDir dir(QDir(filename).absoluteFilePath(folder));
+  
+  foreach(QString entry, dir.entryList(QDir::Dirs | QDir::NoDotAndDotDot)) {
+    if (!load(filename, cache, QDir(folder).relativeFilePath(entry))) {
+      return false;
+    }
   }
   
-  QMap<QString, QString> cache;
-  
-  QDir dir(_filename);
   foreach(QString entry, dir.entryList(QDir::Files)) {
     QString filename = dir.absoluteFilePath(entry);
     QFile file(filename);
@@ -53,7 +58,9 @@ bool DataStore::reload() {
     if (file.open(QFile::ReadOnly)) {
       QTextStream in(&file);
       
-      QString key = QString("/%1").arg(entry);
+      QString key = folder.isEmpty()
+                  ? entry
+                  : QString("%1/%2").arg(folder).arg(entry);
       QString value = in.readAll();
       
       cache.insert(key, value);
@@ -63,6 +70,17 @@ bool DataStore::reload() {
     }
   }
   
+  return true;
+}
+
+bool DataStore::reload() {
+  if (_filename.isEmpty()) {
+    app->errorMessage("no filename");
+    return false;
+  }
+  
+  QMap<QString, QString> cache;
+  if (!load(_filename, cache, "")) return false;
   _cache = cache;
   
   return true;
@@ -78,8 +96,11 @@ bool DataStore::save() const {
   dir.mkpath(".");
   
   foreach(QString key, _cache.keys()) {
-    QString filename = QString(key);
-    QFile file(dir.absoluteFilePath(filename));
+    QString filename = dir.absoluteFilePath(key);
+    
+    QFileInfo(filename).absoluteDir().mkpath(".");
+    
+    QFile file(filename);
     if (file.open(QFile::WriteOnly)) {
       QTextStream out(&file);
       
@@ -110,8 +131,10 @@ void DataStore::insert(const QString& key, const QString& value) {
 
 
 bool DataStore::isKeyValid(const QString& key) const {
-  if (!key.startsWith(QChar('/'))) return false;
-  if (key.count(QChar('/')) != 1) return false;
+  if (key.isEmpty()) return false;
+  if (key.startsWith(QChar('/'))) return false;
+  if (key.endsWith(QChar('/'))) return false;
+  if (key.contains("//")) return false;
   if (key.contains(QChar('\n'))) return false;
   if (key.contains(QChar(' '))) return false;
   if (key.contains(QChar(':'))) return false;
