@@ -10,6 +10,6 @@ RCC_DIR=crumbs
 MOC_DIR=crumbs
 
 # Input
-SOURCES += src/*.cpp src/widget/*.cpp src/menu/*.cpp src/action/*.cpp
-HEADERS += src/*.h   src/widget/*.h   src/menu/*.h   src/action/*.h
+SOURCES += src/*.cpp src/widget/*.cpp src/menu/*.cpp src/action/*.cpp src/store/*.cpp
+HEADERS += src/*.h   src/widget/*.h   src/menu/*.h   src/action/*.h   src/store/*.h
 RESOURCES += resources.qrc
