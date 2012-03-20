@@ -15,6 +15,19 @@ DataStore::DataStore()
 }
 
 
+void DataStore::debug() const {
+  printf("{\n");
+  foreach(QString key, _cache.keys()) {
+    if (_cache[key].isNull()) {
+      printf("  \"%s\": NULL\n", qPrintable(key));
+    } else {
+      printf("  \"%s\": \"%s\"\n", qPrintable(key), qPrintable(_cache[key]));
+    }
+  }
+  printf("}\n");
+}
+
+
 QString DataStore::filename() const {
   return _filename;
 }

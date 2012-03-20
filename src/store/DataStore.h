@@ -17,6 +17,8 @@ private:
 public:
   DataStore();
   
+  void debug() const;
+  
   QString filename() const;
   void setFilename(const QString& filename);
   
