@@ -15,21 +15,21 @@ private:
   QMap<QString, QString> _cache;
   
 public:
-  DataStore(QObject* parent=0);
+  DataStore();
   
   QString filename() const;
-  void setFilename(QString filename);
+  void setFilename(const QString& filename);
   
   bool reload();
   bool save() const;
   
-  const QString operator[](QString key) const;
-  QString take(QString key); // removes the entry
-  void insert(QString key, QString value);
+  const QString operator[](const QString& key) const;
+  QString take(const QString& key); // removes the entry
+  void insert(const QString& key, const QString& value);
   
-  bool isKeyValid(QString key) const;
-  bool contains(QString key) const;
-  void remove(QString key);
+  bool isKeyValid(const QString& key) const;
+  bool contains(const QString& key) const;
+  void remove(const QString& key);
   void clear();
 };
 

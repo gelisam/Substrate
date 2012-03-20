@@ -9,8 +9,8 @@
 #include <assert.h>
 
 
-DataStore::DataStore(QObject* parent)
-: QObject(parent)
+DataStore::DataStore()
+: QObject(NULL)
 {
 }
 
@@ -19,7 +19,7 @@ QString DataStore::filename() const {
   return _filename;
 }
 
-void DataStore::setFilename(QString filename) {
+void DataStore::setFilename(const QString& filename) {
   _filename = filename;
 }
 
@@ -81,22 +81,22 @@ bool DataStore::save() const {
 }
 
 
-const QString DataStore::operator[](QString key) const {
+const QString DataStore::operator[](const QString& key) const {
   return _cache.value(key);
 }
 
-QString DataStore::take(QString key) {
+QString DataStore::take(const QString& key) {
   return _cache.take(key);
 }
 
-void DataStore::insert(QString key, QString value) {
+void DataStore::insert(const QString& key, const QString& value) {
   assert(isKeyValid(key));
   
   _cache.insert(key, value);
 }
 
 
-bool DataStore::isKeyValid(QString key) const {
+bool DataStore::isKeyValid(const QString& key) const {
   if (!key.startsWith(QChar('/'))) return false;
   if (key.count(QChar('/')) != 1) return false;
   if (key.contains(QChar('\n'))) return false;
@@ -106,11 +106,11 @@ bool DataStore::isKeyValid(QString key) const {
   return true;
 }
 
-bool DataStore::contains(QString key) const {
+bool DataStore::contains(const QString& key) const {
   return _cache.contains(key);
 }
 
-void DataStore::remove(QString key) {
+void DataStore::remove(const QString& key) {
   _cache.remove(key);
 }
 
