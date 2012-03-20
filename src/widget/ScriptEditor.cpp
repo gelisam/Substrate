@@ -10,11 +10,6 @@
 ScriptEditor::ScriptEditor(QWidget* parent)
 : TextEditor(parent)
 {
-}
-
-void ScriptEditor::init() {
-  TextEditor::init();
-  
   // clear undo buffer
   setUndoRedoEnabled(false);
   setUndoRedoEnabled(true);

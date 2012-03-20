@@ -13,7 +13,6 @@ CentralWidget::CentralWidget(QWidget* parent)
 
 void CentralWidget::init() {
   _inputPane->init();
-  _scriptEditor->init();
 }
 
 

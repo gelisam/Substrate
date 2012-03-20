@@ -10,7 +10,6 @@ class TextEditor : public QTextEdit
   
 public:
   TextEditor(QWidget* parent);
-  virtual void init();
   
   virtual bool open(const QString& filename);
 };

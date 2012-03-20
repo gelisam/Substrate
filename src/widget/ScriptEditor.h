@@ -12,7 +12,6 @@ class ScriptEditor : public TextEditor
   
 public:
   ScriptEditor(QWidget* parent);
-  virtual void init();
   
   virtual bool open(const QString& filename);
   

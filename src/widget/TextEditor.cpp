@@ -10,9 +10,6 @@ TextEditor::TextEditor(QWidget* parent)
 {
 }
 
-void TextEditor::init() {
-}
-
 
 bool TextEditor::open(const QString& filename) {
   QFile file(filename);

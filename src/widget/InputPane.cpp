@@ -8,7 +8,6 @@ InputPane::InputPane(QWidget* parent)
 }
 
 void InputPane::init() {
-  currentInputEditor()->init();
 }
 
 

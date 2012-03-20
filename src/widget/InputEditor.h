@@ -10,7 +10,6 @@ class InputEditor : public TextEditor
   
 public:
   InputEditor(QWidget* parent);
-  virtual void init();
 };
 
 #endif
