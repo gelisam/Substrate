@@ -19,110 +19,55 @@ void Project::init() {
 
 
 QString Project::filename() const {
-  return _filename;
+  return _dataStore.filename();
 }
 
 void Project::setFilename(QString filename) {
-  _filename = filename;
+  _dataStore.setFilename(filename);
 }
 
 
 bool Project::reload() {
-  QDir dir(_filename);
+  if (!_dataStore.reload()) return false;
   
   InputPane* inputPane = app->mainWindow()->centralWidget()->inputPane();
   inputPane->clear();
   for(int i=0;; ++i) {
-    QString filename = dir.absoluteFilePath("inputs/%1").arg(i);
-    QFile file(filename);
-    if (!file.exists()) break;
+    QString key = QString("inputs/%1").arg(i);
+    if (!_dataStore.contains(key)) break;
     
-    if (file.open(QFile::ReadOnly)) {
-      QTextStream in(&file);
-      QString inputContents = in.readAll();
-      
-      inputPane->addInputEditor(inputContents);
-    } else {
-      app->errorMessage(file.errorString());
-      return false;
-    }
+    inputPane->addInputEditor(_dataStore[key]);
   }
   inputPane->setCurrentIndex(0);
   
   ScriptEditor* scriptEditor = app->scriptEditor();
   scriptEditor->clear();
   {
-    QString filename = dir.absoluteFilePath("script");
-    QFile file(filename);
+    QString key = "script";
+    if (!_dataStore.contains(key)) return false;
     
-    if (file.open(QFile::ReadOnly)) {
-      QTextStream in(&file);
-      QString scriptContents = in.readAll();
-      
-      scriptEditor->setPlainText(scriptContents);
-    } else {
-      app->errorMessage(file.errorString());
-      return false;
-    }
+    scriptEditor->setPlainText(_dataStore[key]);
   }
   
   return true;
 }
 
-bool Project::save() const {
-  if (_filename.isEmpty()) {
-    app->errorMessage("no filename");
-    return false;
-  }
-  
-  QDir dir(_filename);
-  dir.mkpath(".");
+bool Project::save() {
+  _dataStore.clear();
   
   // store the version number,
   // in a format which I plan to use in the future.
-  {
-    QString filename = QString("values.txt");
-    QFile file(dir.absoluteFilePath(filename));
-    if (file.open(QFile::WriteOnly)) {
-      QTextStream out(&file);
-      
-      out << "Substrate_version: 0.3";
-    } else {
-      app->errorMessage(file.errorString());
-      return false;
-    }
-  }
+  _dataStore.insert("values.txt", "Substrate_version: 0.3");
   
   InputPane* inputPane = app->mainWindow()->centralWidget()->inputPane();
-  dir.mkpath("inputs");
   for(int i=0; i<inputPane->count(); ++i) {
-    InputEditor* inputEditor = qobject_cast<InputEditor*>(inputPane->widget(i));
+    QString key = QString("inputs/%1").arg(i);
     
-    QString filename = QString("inputs/%1").arg(i);
-    QFile file(dir.absoluteFilePath(filename));
-    if (file.open(QFile::WriteOnly)) {
-      QTextStream out(&file);
-      
-      out << inputEditor->toPlainText();
-    } else {
-      app->errorMessage(file.errorString());
-      return false;
-    }
+    InputEditor* inputEditor = qobject_cast<InputEditor*>(inputPane->widget(i));
+    _dataStore.insert(key, inputEditor->toPlainText());
   }
   
-  ScriptEditor* scriptEditor = app->scriptEditor();
-  {
-    QString filename = QString("script");
-    QFile file(dir.absoluteFilePath(filename));
-    if (file.open(QFile::WriteOnly)) {
-      QTextStream out(&file);
-      
-      out << scriptEditor->toPlainText();
-    } else {
-      app->errorMessage(file.errorString());
-      return false;
-    }
-  }
+  _dataStore.insert("script", app->scriptEditor()->toPlainText());
   
-  return true;
+  return _dataStore.save();
 }

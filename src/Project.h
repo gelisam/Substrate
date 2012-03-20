@@ -3,16 +3,18 @@
 
 #include <QtCore/QObject>
 
+#include "store/DataStore.h"
+
 
 class Project : public QObject
 {
   Q_OBJECT;
   
 private:
-  QString _filename;
+  DataStore _dataStore;
   
 public:
-  Project(QObject* parent=0);
+  Project(QObject* parent);
   
   void init();
   
@@ -20,7 +22,7 @@ public:
   void setFilename(QString filename);
   
   bool reload();
-  bool save() const;
+  bool save();
 };
 
 #endif
