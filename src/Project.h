@@ -4,6 +4,8 @@
 #include <QtCore/QObject>
 
 #include "store/DataStore.h"
+#include "store/LocalStore.h"
+#include "store/StringStore.h"
 
 
 class Project : public QObject
@@ -12,6 +14,10 @@ class Project : public QObject
   
 private:
   DataStore _dataStore;
+  LocalStore _store;
+  
+  StringStore _version;
+  StringStore _script;
   
 public:
   Project(QObject* parent);

@@ -9,7 +9,13 @@
 
 Project::Project(QObject* parent)
 : QObject(parent)
+, _dataStore()
+, _store(_dataStore)
+, _version(_store.path("values.txt"))
+, _script(_store.path("script"))
 {
+  // store the version in a format which I plan to use in the future.
+  _version.setValue("Substrate_version: 0.3");
 }
 
 void Project::init() {
@@ -42,23 +48,12 @@ bool Project::reload() {
   
   ScriptEditor* scriptEditor = app->scriptEditor();
   scriptEditor->clear();
-  {
-    QString key = "script";
-    if (!_dataStore.contains(key)) return false;
-    
-    scriptEditor->setPlainText(_dataStore[key]);
-  }
+  scriptEditor->setPlainText(_script.value());
   
   return true;
 }
 
 bool Project::save() {
-  _dataStore.clear();
-  
-  // store the version number,
-  // in a format which I plan to use in the future.
-  _dataStore.insert("values.txt", "Substrate_version: 0.3");
-  
   InputPane* inputPane = app->mainWindow()->centralWidget()->inputPane();
   for(int i=0; i<inputPane->count(); ++i) {
     QString key = QString("inputs/%1").arg(i);
@@ -67,7 +62,7 @@ bool Project::save() {
     _dataStore.insert(key, inputEditor->toPlainText());
   }
   
-  _dataStore.insert("script", app->scriptEditor()->toPlainText());
+  _script.setValue(app->scriptEditor()->toPlainText());
   
   return _dataStore.save();
 }

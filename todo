@@ -31,6 +31,8 @@ current iteration.
 bugs:
 - The application starts in the background.
 - Unknown error when trying to save the default project.
+- Without dataStore.clear(), removing an input won't delete it on disk.
+- Which error message do you get if the script file doesn't exist?
 
 feature request:
 - don't auto-save if the data isn't dirty.

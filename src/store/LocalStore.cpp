@@ -34,6 +34,10 @@ LocalStore::LocalStore(const LocalStore& that)
 {
 }
 
+LocalStore LocalStore::path(const QString& localPath) const {
+  return LocalStore(*this, localPath);
+}
+
 
 const QString LocalStore::operator[](const QString& key) const {
   assert(isKeyValid(key));
