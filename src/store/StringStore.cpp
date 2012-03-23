@@ -2,16 +2,26 @@
 
 
 StringStore::StringStore(const LocalStore& store)
-: QObject(NULL)
-, _store(store)
+: SpecializedStore(store)
+, _value()
 {
 }
 
 
 const QString StringStore::value() const {
-  return _store[""];
+  return _value;
 }
 
 void StringStore::setValue(const QString& value) {
-  _store.insert("", value);
+  _value = value;
+}
+
+
+void StringStore::flush() {
+  _store.insert("", _value);
+}
+
+bool StringStore::reload() {
+  _value = _store[""];
+  return true;
 }

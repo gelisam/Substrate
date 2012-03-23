@@ -35,6 +35,8 @@ void Project::setFilename(QString filename) {
 
 bool Project::reload() {
   if (!_dataStore.reload()) return false;
+  if (!_version.reload()) return false;
+  if (!_script.reload()) return false;
   
   InputPane* inputPane = app->mainWindow()->centralWidget()->inputPane();
   inputPane->clear();
@@ -63,6 +65,9 @@ bool Project::save() {
   }
   
   _script.setValue(app->scriptEditor()->toPlainText());
+  
+  _version.flush();
+  _script.flush();
   
   return _dataStore.save();
 }
