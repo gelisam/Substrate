@@ -6,6 +6,7 @@
 #include "store/DataStore.h"
 #include "store/LocalStore.h"
 #include "store/StringStore.h"
+#include "store/ArrayStore.h"
 
 
 class Project : public QObject
@@ -17,6 +18,7 @@ private:
   LocalStore _store;
   
   StringStore _version;
+  ArrayStore<StringStore> _inputs;
   StringStore _script;
   
 public:
