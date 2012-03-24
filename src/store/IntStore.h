@@ -1,17 +1,17 @@
-#ifndef STRING_STORE_H
-#define STRING_STORE_H
+#ifndef INT_STORE_H
+#define INT_STORE_H
 
 #include "store/PrimitiveStore.h"
 
 
-class StringStore : public PrimitiveStore<QString>
+class IntStore : public PrimitiveStore<int>
 {
 protected:
   virtual QString toString() const;
   virtual bool fromString(const QString&);
   
 public:
-  StringStore(const LocalStore& store);
+  IntStore(const LocalStore& store);
 };
 
 #endif
