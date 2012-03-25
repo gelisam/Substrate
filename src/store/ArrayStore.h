@@ -13,7 +13,7 @@ private:
   QList<TStore*> _stores;
   
   static QString key(int i) {
-    return QString("%1").arg(i);
+    return QString("/%1").arg(i);
   }
   
 public:

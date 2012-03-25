@@ -58,6 +58,8 @@ void LocalStore::insert(const QString& key, const QString& value) {
 bool LocalStore::isKeyValid(const QString& key) const {
   if (key.isNull()) return false;
   if (key.isEmpty()) return true;
+  
+  if (key.startsWith(QChar('/'))) return true; // close enough...
   return _store.isKeyValid(key);
 }
 

@@ -35,6 +35,7 @@ bugs:
 - Which error message do you get if the script file doesn't exist?
 - Stores clobber their data if reload fails.
 - Erasing keys won't remove files.
+- Same hotkey for Open and Reloadx
 
 feature request:
 - don't auto-save if the data isn't dirty.
