@@ -2,7 +2,9 @@
 #define DATA_STORE_H
 
 #include <QtCore/QObject>
-#include <QtCore/QString>
+
+#include "store/DiskStore.h"
+
 #include <QtCore/QMap>
 
 
@@ -11,7 +13,7 @@ class DataStore : public QObject
   Q_OBJECT;
   
 private:
-  QString _filename;
+  DiskStore _disk;
   QMap<QString, QString> _cache;
   
 public:

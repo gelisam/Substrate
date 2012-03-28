@@ -30,85 +30,36 @@ void DataStore::debug() const {
 
 
 QString DataStore::filename() const {
-  return _filename;
+  return _disk.filename();
 }
 
 void DataStore::setFilename(const QString& filename) {
-  _filename = filename;
+  _disk.setFilename(filename);
 }
 
-
-static bool load(
-  const QString& filename,
-  QMap<QString, QString>& cache,
-  const QString& folder
-) {
-  QDir dir(QDir(filename).absoluteFilePath(folder));
-  
-  foreach(QString entry, dir.entryList(QDir::Dirs | QDir::NoDotAndDotDot)) {
-    if (!load(filename, cache, QDir(folder).relativeFilePath(entry))) {
-      return false;
-    }
-  }
-  
-  foreach(QString entry, dir.entryList(QDir::Files)) {
-    QString filename = dir.absoluteFilePath(entry);
-    QFile file(filename);
-    
-    if (file.open(QFile::ReadOnly)) {
-      QTextStream in(&file);
-      
-      QString key = folder.isEmpty()
-                  ? entry
-                  : QString("%1/%2").arg(folder).arg(entry);
-      QString value = in.readAll();
-      
-      cache.insert(key, value);
-    } else {
-      app->errorMessage(file.errorString());
-      return false;
-    }
-  }
-  
-  return true;
-}
 
 bool DataStore::reload() {
-  if (_filename.isEmpty()) {
+  if (_disk.filename().isEmpty()) {
     app->errorMessage("no filename");
     return false;
   }
   
-  QMap<QString, QString> cache;
-  if (!load(_filename, cache, "")) return false;
-  _cache = cache;
+  _cache.clear();
+  foreach(QString key, _disk.leaves()) {
+    _cache.insert(key, _disk[key]);
+  }
   
   return true;
 }
 
 bool DataStore::save() const {
-  if (_filename.isEmpty()) {
+  if (_disk.filename().isEmpty()) {
     app->errorMessage("no filename");
     return false;
   }
   
-  QDir dir(_filename);
-  dir.mkpath(".");
-  
   foreach(QString key, _cache.keys()) {
-    QString filename = dir.absoluteFilePath(key);
-    
-    QFileInfo(filename).absoluteDir().mkpath(".");
-    
-    QFile file(filename);
-    if (file.open(QFile::WriteOnly)) {
-      QTextStream out(&file);
-      
-      out << _cache.value(key);
-    } else {
-      app->errorMessage(file.errorString());
-      return false;
-    }
+    _disk.insert(key, _cache.value(key));
   }
   
   return true;
