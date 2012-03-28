@@ -70,10 +70,6 @@ const QString DataStore::operator[](const QString& key) const {
   return _cache.value(key);
 }
 
-QString DataStore::take(const QString& key) {
-  return _cache.take(key);
-}
-
 void DataStore::insert(const QString& key, const QString& value) {
   assert(isKeyValid(key));
   

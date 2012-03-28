@@ -28,7 +28,6 @@ public:
   bool save() const;
   
   const QString operator[](const QString& key) const;
-  QString take(const QString& key); // removes the entry
   void insert(const QString& key, const QString& value);
   
   bool isKeyValid(const QString& key) const;

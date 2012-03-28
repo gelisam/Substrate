@@ -44,11 +44,6 @@ const QString LocalStore::operator[](const QString& key) const {
   return _store[_path+key];
 }
 
-QString LocalStore::take(const QString& key) {
-  assert(isKeyValid(key));
-  return _store.take(_path+key);
-}
-
 void LocalStore::insert(const QString& key, const QString& value) {
   assert(isKeyValid(key));
   _store.insert(_path+key, value);
