@@ -13,6 +13,7 @@ Project::Project(QObject* parent)
 , _store(_dataStore)
 , _version(_store.path("values.txt"))
 , _inputs(_store.path("inputs"))
+, _input(_store.path("input"))
 , _script(_store.path("script"))
 {
   // store the version in a format which I plan to use in the future.
@@ -39,20 +40,24 @@ void Project::setFilename(QString filename) {
 
 bool Project::reload() {
   if (!_dataStore.reload()) return false;
-  if (!_version.reload()) return false;
-  if (!_inputs.reload()) return false;
-  if (!_script.reload()) return false;
+  if (!_version.reload()) {/* bah. try anyway. */}
   
-  InputPane* inputPane = app->mainWindow()->centralWidget()->inputPane();
-  inputPane->clear();
-  for(int i=0; i<_inputs.length(); ++i) {
-    inputPane->addInputEditor(_inputs[i]->value());
+  if (_inputs.reload()) {
+    InputPane* inputPane = app->mainWindow()->centralWidget()->inputPane();
+    inputPane->clear();
+    for(int i=0; i<_inputs.length(); ++i) {
+      inputPane->addInputEditor(_inputs[i]->value());
+    }
+    
+    if (_input.reload()) {
+      inputPane->setCurrentIndex(_input.value());
+    }
   }
-  inputPane->setCurrentIndex(0);
   
-  ScriptEditor* scriptEditor = app->scriptEditor();
-  scriptEditor->clear();
-  scriptEditor->setPlainText(_script.value());
+  if (_script.reload()) {
+    ScriptEditor* scriptEditor = app->scriptEditor();
+    scriptEditor->setPlainText(_script.value());
+  }
   
   return true;
 }
@@ -64,11 +69,13 @@ bool Project::save() {
     InputEditor* inputEditor = qobject_cast<InputEditor*>(inputPane->widget(i));
     _inputs[i]->setValue(inputEditor->toPlainText());
   }
+  _input.setValue(inputPane->currentIndex());
   
   _script.setValue(app->scriptEditor()->toPlainText());
   
   _version.flush();
   _inputs.flush();
+  _input.flush();
   _script.flush();
   
   return _dataStore.save();

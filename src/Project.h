@@ -6,6 +6,7 @@
 #include "store/DataStore.h"
 #include "store/LocalStore.h"
 #include "store/StringStore.h"
+#include "store/IntStore.h"
 #include "store/ArrayStore.h"
 
 
@@ -19,6 +20,7 @@ private:
   
   StringStore _version;
   ArrayStore<StringStore> _inputs;
+  IntStore _input;
   StringStore _script;
   
 public:
