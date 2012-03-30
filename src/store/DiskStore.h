@@ -7,6 +7,7 @@
 #include <QtCore/QObject>
 #include <QtCore/QString>
 #include <QtCore/QStringList>
+class QFileSystemWatcher;
 
 
 QString operator/(const QString& tree, const QString& leaf);
@@ -17,6 +18,7 @@ class DiskStore : public QObject
   
 private:
   QString _filename;
+  QFileSystemWatcher* _watcher;
   
 public:
   DiskStore();
@@ -37,7 +39,14 @@ public:
   void removeTree(const QString& key) const;
   
   QStringList children(const QString& tree) const;
+  QStringList branches(const QString& tree="") const;
   QStringList leaves(const QString& tree="") const;
+  
+private slots:
+  void emitChanged();
+  
+signals:
+  void changed();
 };
 
 #endif

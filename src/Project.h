@@ -29,6 +29,7 @@ public:
   QString filename() const;
   void setFilename(QString filename);
   
+public slots:
   bool reload();
   bool save();
 };

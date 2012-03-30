@@ -22,6 +22,9 @@ Project::Project(QObject* parent)
 void Project::init() {
   setFilename(":/resources/demo.sub");
   reload();
+  
+  connect(_dataStore.diskStore(), SIGNAL(changed()),
+          this,                   SLOT(reload()));
 }
 
 

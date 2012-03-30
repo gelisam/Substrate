@@ -38,6 +38,11 @@ void DataStore::setFilename(const QString& filename) {
 }
 
 
+DiskStore* DataStore::diskStore() {
+  return &_disk;
+}
+
+
 bool DataStore::reload() {
   if (_disk.filename().isEmpty()) {
     app->errorMessage("no filename");

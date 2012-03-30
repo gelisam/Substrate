@@ -24,6 +24,8 @@ public:
   QString filename() const;
   void setFilename(const QString& filename);
   
+  DiskStore* diskStore();
+  
   bool reload();
   bool save() const;
   

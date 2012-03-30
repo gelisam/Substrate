@@ -36,6 +36,8 @@ bugs:
 - Stores clobber their data if reload fails.
 - Erasing keys won't remove files.
 - Same hotkey for Open and Reloadx
+- Edit field1 in the UI, edit field2 on disk, field1 gets clobbered.
+- QFileSystemWatcher error messages when saving.
 
 feature request:
 - don't auto-save if the data isn't dirty.
