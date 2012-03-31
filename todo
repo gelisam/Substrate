@@ -1,8 +1,6 @@
 Todo now
 ===
 
-Story 10: I can save the current project. Use a version number in case the
-          format changes.
 Story 11: I can run the script with a particular file as input.
 Story 12: I can run the script with each file from a directory (recursively)
           as input.
@@ -11,11 +9,6 @@ Story 14: I can perform story 13 from the command line, or when a file change
           is detected.
 Story 15: I can write multiple parallel scripts (all with the same input).
 Story 16: I can write multiple sequential scripts (feeding one into the other).
-Story 17: I can reload and run the entire project.
-Story 18: Simple filesystem-backed key-value store with one file per key.
-Story 19: The project reloads when the filesystem copy of the store changes.
-Story 20: Specialized store interface for strings, integers, and string arrays.
-Story 21: The project stores the active input tab.
 
 
 Above are the tasks which are planned for the current iteration,
@@ -92,3 +85,16 @@ feature request:
 - A mechanism to enter special ASCII characters
 - A variant of sed which works through newlines
 - An easy way to run the truncated text + some post-processing
+
+
+The flower and the pot
+===
+
+Here are the good and bad stories from past iterations. Let's figure out what
+the good ones have in common and schedule more of those.
+
+entertaining stories:
+- Story 20: Specialized store interface for strings, integers, and arrays.
+
+annoying stories:
+- Story 19: The project reloads when the filesystem copy of the store changes.
