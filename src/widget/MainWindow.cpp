@@ -16,10 +16,6 @@ void MainWindow::init() {
   _menuBar->init();
   _centralWidget->init();
   _statusBar->init();
-  
-  QAction* runAction    = _menuBar->runMenu()->runAction();
-  connect(this,      SIGNAL(activated()),
-          runAction, SLOT(act()));
 }
 
 

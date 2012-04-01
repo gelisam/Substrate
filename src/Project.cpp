@@ -24,8 +24,11 @@ void Project::init() {
   setFilename(":/resources/demo.sub");
   reload();
   
+  QAction* runAction    = app->mainWindow()->menuBar()->runMenu()->runAction();
   connect(_dataStore.diskStore(), SIGNAL(changed()),
           this,                   SLOT(reload()));
+  connect(_dataStore.diskStore(), SIGNAL(changed()),
+          runAction,              SLOT(trigger()));
 }
 
 
