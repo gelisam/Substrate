@@ -17,10 +17,10 @@ Here are the bugs and feature requests found in or inspired by the
 current iteration.
 
 bugs:
-- ...
+- Crash when deleting the project on disk.
 
 feature request:
-- ...
+- Don't accumulate more than one reload request.
 
 
 Todo later
