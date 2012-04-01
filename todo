@@ -1,18 +1,13 @@
 Todo now
 ===
 
-Story 11: I can run the script with a particular file as input.
-Story 12: I can run the script with each file from a directory (recursively)
-          as input.
-Story 13: I can run the script with only the changed files as input.
-Story 14: I can perform story 13 from the command line, or when a file change
-          is detected.
-Story 15: I can write multiple parallel scripts (all with the same input).
-Story 16: I can write multiple sequential scripts (feeding one into the other).
+- Setup continuous compilation (using Substrate to detect when the source
+  files change).
+- Use signals to propagate errors.
+- Implement an InputNode which can bake itself.
+- Implement a Gui which links the input nodes with the input pane widget.
 
-
-Above are the tasks which are planned for the current iteration,
-plus a few more.
+Above are the tasks which are planned for the current iteration.
 
 
 Recent feedback
@@ -22,18 +17,10 @@ Here are the bugs and feature requests found in or inspired by the
 current iteration.
 
 bugs:
-- The application starts in the background.
-- Unknown error when trying to save the default project.
-- Without dataStore.clear(), removing an input won't delete it on disk.
-- Which error message do you get if the script file doesn't exist?
-- Stores clobber their data if reload fails.
-- Erasing keys won't remove files.
-- Same hotkey for Open and Reloadx
-- Edit field1 in the UI, edit field2 on disk, field1 gets clobbered.
-- QFileSystemWatcher error messages when saving.
+- ...
 
 feature request:
-- don't auto-save if the data isn't dirty.
+- ...
 
 
 Todo later
@@ -52,6 +39,15 @@ bugs:
 - Can't move below a line which wraps around using the Down key.
 - Enter key always scrolls to the top.
 - Even with "All files" selected, File/Open cannot open the file "myscript".
+- The application starts in the background.
+- Unknown error when trying to save the default project.
+- Without dataStore.clear(), removing an input won't delete it on disk.
+- Which error message do you get if the script file doesn't exist?
+- Stores clobber their data if reload fails.
+- Erasing keys won't remove files.
+- Same hotkey for Open and Reloadx
+- Edit field1 in the UI, edit field2 on disk, field1 gets clobbered.
+- QFileSystemWatcher error messages when saving.
 
 feature request:
 - pwd should be the .sub's parent folder
@@ -85,6 +81,7 @@ feature request:
 - A mechanism to enter special ASCII characters
 - A variant of sed which works through newlines
 - An easy way to run the truncated text + some post-processing
+- Don't auto-save if the data isn't dirty.
 
 
 The flower and the pot
