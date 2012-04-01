@@ -24,14 +24,15 @@ public:
   void init();
   void run();
   
-  void errorMessage(const QString& message) const;
-  
   Oven* oven() const;
   Project* project() const;
   MainWindow* mainWindow() const;
   
   InputEditor* currentInputEditor() const;
   ScriptEditor* scriptEditor() const;
+  
+public slots:
+  void errorMessage(const QString&);
 };
 
 extern Application* app;

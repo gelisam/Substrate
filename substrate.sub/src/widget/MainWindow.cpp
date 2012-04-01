@@ -16,6 +16,11 @@ void MainWindow::init() {
   _menuBar->init();
   _centralWidget->init();
   _statusBar->init();
+  
+  connect(_centralWidget->inputPane(),    SIGNAL(error(const QString&)),
+          this,                           SLOT(emitError(const QString&)));
+  connect(_centralWidget->scriptEditor(), SIGNAL(error(const QString&)),
+          this,                           SLOT(emitError(const QString&)));
 }
 
 
@@ -40,4 +45,9 @@ CentralWidget* MainWindow::centralWidget() const {
 
 StatusBar* MainWindow::statusBar() const {
   return _statusBar;
+}
+
+
+void MainWindow::emitError(const QString& message) {
+  emit error(message);
 }

@@ -18,9 +18,17 @@ InputEditor* InputPane::addInputEditor(QString initialContents) {
   int tabIndex = addTab(inputEditor, "Input");
   setCurrentIndex(tabIndex);
   
+  connect(inputEditor, SIGNAL(error(const QString&)),
+          this,        SLOT(emitError(const QString&)));
+  
   return inputEditor;
 }
 
 InputEditor* InputPane::currentInputEditor() const {
   return qobject_cast<InputEditor*>(currentWidget());
+}
+
+
+void InputPane::emitError(const QString& message) {
+  emit error(message);
 }

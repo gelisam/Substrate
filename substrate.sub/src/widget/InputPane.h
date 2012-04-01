@@ -16,6 +16,12 @@ public:
   
   InputEditor* addInputEditor(QString initialContents=QString());
   InputEditor* currentInputEditor() const;
+  
+private slots:
+  void emitError(const QString&);
+  
+signals:
+  void error(const QString&);
 };
 
 #endif

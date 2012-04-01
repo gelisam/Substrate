@@ -22,6 +22,13 @@ void Application::init() {
   _oven->init();
   _project->init();
   _mainWindow->init();
+  
+  connect(_oven,       SIGNAL(error(const QString&)),
+          this,        SLOT(errorMessage(const QString&)));
+  connect(_project,    SIGNAL(error(const QString&)),
+          this,        SLOT(errorMessage(const QString&)));
+  connect(_mainWindow, SIGNAL(error(const QString&)),
+          this,        SLOT(errorMessage(const QString&)));
 }
 
 Application::~Application() {
@@ -35,10 +42,6 @@ void Application::Application::run() {
   _mainWindow->show();
   
   exec();
-}
-
-void Application::errorMessage(const QString& message) const {
-  _mainWindow->statusBar()->errorMessage(message);
 }
 
 
@@ -61,4 +64,9 @@ InputEditor* Application::currentInputEditor() const {
 
 ScriptEditor* Application::scriptEditor() const {
   return _mainWindow->centralWidget()->scriptEditor();
+}
+
+
+void Application::errorMessage(const QString& message) {
+  _mainWindow->statusBar()->errorMessage(message);
 }

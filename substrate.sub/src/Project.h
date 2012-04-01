@@ -34,6 +34,12 @@ public:
 public slots:
   bool reload();
   bool save();
+  
+private slots:
+  void emitError(const QString&);
+  
+signals:
+  void error(const QString&);
 };
 
 #endif

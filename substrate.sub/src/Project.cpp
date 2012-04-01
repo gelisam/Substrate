@@ -29,6 +29,11 @@ void Project::init() {
           this,                   SLOT(reload()));
   connect(_dataStore.diskStore(), SIGNAL(changed()),
           runAction,              SLOT(trigger()));
+  
+  connect(_dataStore.diskStore(), SIGNAL(error(const QString&)),
+          this,                   SLOT(emitError(const QString&)));
+  connect(&_dataStore,            SIGNAL(error(const QString&)),
+          this,                   SLOT(emitError(const QString&)));
 }
 
 
@@ -82,4 +87,9 @@ bool Project::save() {
   _script.flush();
   
   return _dataStore.save();
+}
+
+
+void Project::emitError(const QString& message) {
+  emit error(message);
 }

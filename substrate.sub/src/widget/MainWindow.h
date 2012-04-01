@@ -28,7 +28,12 @@ public:
 protected:
   virtual void changeEvent(QEvent* event);
   
+private slots:
+  void emitError(const QString&);
+
 signals:
+  void error(const QString&);
+  
   void activated();
   void deactivated();
 };
