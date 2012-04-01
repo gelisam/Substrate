@@ -13,6 +13,9 @@ public:
   void init();
   
   void cook(QString inputContents, QString scriptContents);
+  
+signals:
+  void error(const QString&);
 };
 
 #endif

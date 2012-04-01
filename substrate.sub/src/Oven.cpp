@@ -1,7 +1,5 @@
 #include "Oven.h"
 
-#include "App.h"
-
 #include <QtCore/QTemporaryFile>
 #include <QtCore/QProcess>
 #include <QtCore/QTextStream>
@@ -43,9 +41,9 @@ void Oven::cook(QString inputContents, QString scriptContents) {
   }
   
   if (file.error() != QTemporaryFile::NoError) {
-    app->errorMessage(file.errorString());
+    emit error(file.errorString());
   } else {
-    app->errorMessage(process.errorString());
+    emit error(process.errorString());
   }
   
   // error.

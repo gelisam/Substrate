@@ -26,8 +26,8 @@ public:
   QString filename() const;
   void setFilename(const QString& filename);
   
-  const QString operator[](const QString& leaf) const;
-  void insert(const QString& leaf, const QString& value) const;
+  const QString operator[](const QString& leaf);
+  void insert(const QString& leaf, const QString& value);
   
   static bool isValidLeaf(const QString& key);
   static bool isValidTree(const QString& key);
@@ -35,8 +35,8 @@ public:
   bool containsLeaf(const QString& key) const;
   bool containsTree(const QString& key) const;
   
-  void removeLeaf(const QString& key) const;
-  void removeTree(const QString& key) const;
+  void removeLeaf(const QString& key);
+  void removeTree(const QString& key);
   
   QStringList children(const QString& tree) const;
   QStringList branches(const QString& tree="") const;
@@ -47,6 +47,7 @@ private slots:
   
 signals:
   void changed();
+  void error(const QString&);
 };
 
 #endif

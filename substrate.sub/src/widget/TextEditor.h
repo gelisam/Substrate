@@ -12,6 +12,9 @@ public:
   TextEditor(QWidget* parent);
   
   virtual bool open(const QString& filename);
+  
+signals:
+  void error(const QString&);
 };
 
 #endif

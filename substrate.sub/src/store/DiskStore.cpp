@@ -1,7 +1,5 @@
 #include "DiskStore.h"
 
-#include "App.h"
-
 #include <QtCore/QDir>
 #include <QtCore/QFile>
 #include <QtCore/QFileInfo>
@@ -78,7 +76,7 @@ void DiskStore::setFilename(const QString& filename) {
 }
 
 
-const QString DiskStore::operator[](const QString& leaf) const {
+const QString DiskStore::operator[](const QString& leaf) {
   QFile file(path(_filename, leaf));
   
   if (file.open(QFile::ReadOnly)) {
@@ -86,12 +84,12 @@ const QString DiskStore::operator[](const QString& leaf) const {
     
     return in.readAll();
   } else {
-    app->errorMessage(file.errorString());
+    emit error(file.errorString());
     return QString();
   }
 }
 
-void DiskStore::insert(const QString& leaf, const QString& value) const {
+void DiskStore::insert(const QString& leaf, const QString& value) {
   parentDir(_filename, leaf).mkpath(".");
   
   QFile file(path(_filename, leaf));
@@ -104,7 +102,7 @@ void DiskStore::insert(const QString& leaf, const QString& value) const {
     
     watchAll(_watcher, _filename, this);
   } else {
-    app->errorMessage(file.errorString());
+    emit error(file.errorString());
   }
 }
 
@@ -142,19 +140,19 @@ bool DiskStore::containsTree(const QString& key) const {
 }
 
 
-void DiskStore::removeLeaf(const QString& key) const {
+void DiskStore::removeLeaf(const QString& key) {
   watchNothing(_watcher);
   
   QFile file(path(_filename, key));
   
   if (!file.remove()) {
-    app->errorMessage(file.errorString());
+    emit error(file.errorString());
   }
   
   watchAll(_watcher, _filename, this);
 }
 
-void DiskStore::removeTree(const QString& key) const {
+void DiskStore::removeTree(const QString& key) {
   watchNothing(_watcher);
   
   QDir dir(path(_filename, key));
@@ -162,7 +160,7 @@ void DiskStore::removeTree(const QString& key) const {
   // TODO: remove contents...
   
   if (!dir.rmdir(".")) {
-    app->errorMessage(QString("Could not remove %1").arg(key));
+    emit error(QString("Could not remove %1").arg(key));
   }
   
   watchAll(_watcher, _filename, this);

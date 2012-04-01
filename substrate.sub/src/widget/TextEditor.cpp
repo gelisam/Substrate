@@ -1,7 +1,5 @@
 #include "widget/TextEditor.h"
 
-#include "App.h"
-
 #include <QtCore/QFile>
 
 
@@ -25,6 +23,6 @@ bool TextEditor::open(const QString& filename) {
   }
   
   // error.
-  app->errorMessage(file.errorString());
+  emit error(file.errorString());
   return false;
 }

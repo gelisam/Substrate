@@ -27,7 +27,7 @@ public:
   DiskStore* diskStore();
   
   bool reload();
-  bool save() const;
+  bool save();
   
   const QString operator[](const QString& key) const;
   void insert(const QString& key, const QString& value);
@@ -36,6 +36,9 @@ public:
   bool contains(const QString& key) const;
   void remove(const QString& key);
   void clear();
+  
+signals:
+  void error(const QString&);
 };
 
 #endif

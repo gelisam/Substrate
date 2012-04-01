@@ -1,7 +1,5 @@
 #include "DataStore.h"
 
-#include "App.h"
-
 #include <QtCore/QDir>
 #include <QtCore/QFile>
 #include <QtCore/QFileInfo>
@@ -45,7 +43,7 @@ DiskStore* DataStore::diskStore() {
 
 bool DataStore::reload() {
   if (_disk.filename().isEmpty()) {
-    app->errorMessage("no filename");
+    emit error("no filename");
     return false;
   }
   
@@ -57,9 +55,9 @@ bool DataStore::reload() {
   return true;
 }
 
-bool DataStore::save() const {
+bool DataStore::save() {
   if (_disk.filename().isEmpty()) {
-    app->errorMessage("no filename");
+    emit error("no filename");
     return false;
   }
   
