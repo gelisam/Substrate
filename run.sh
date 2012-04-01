@@ -3,9 +3,6 @@ set -e
 
 APP="$(basename "$(pwd)")"
 
-# make sure the app is up-to-date
-./build.sh
-
 EXE="$APP.app/Contents/MacOS/$APP"
 if [ ! -x "$EXE" ]; then
   EXE="substrate"

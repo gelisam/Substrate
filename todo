@@ -21,6 +21,8 @@ bugs:
 
 feature request:
 - Don't accumulate more than one reload request.
+- Remember the last project.
+- Remember the last window position.
 
 
 Todo later
