@@ -1,48 +1,10 @@
-Substrate 0.3.0
+Substrate
 ===
 
-Substrate is a GUI tool which makes it easy to build text processing
-pipelines.
+I often write Makefile scripts which produce lots of intermediate files with anonymous name such as list1, list2, etc. I've been dreaming for a while about a graphical variant of Make which would allow me to omit the filename for my intermediate steps, and would allow me instead to structure my text- and filesystem-manipulations as a graph of the dependencies.
 
-Thanks its ability to display intermediate results from the middle of your
-pipeline, it's easy to spot which parts of your pipelines don't behave as they
-should.
+One day, I sat down and decided I would stop dreaming and start implementing! At the time, I was learning Agile at the office so I used this as an experiment for a one-person Agile-team. I gave up after a few iterations, but the iterations I did complete were full of discoveries which you can read on my blog starting from [this post](http://gelisam.blogspot.ca/2012/02/may-day-i-actually-complete-something.html).
 
+This project is currently on hold, but I still need something like that, so I'm probably going to continue working on it someday. Although, knowing myself, I will probably start from scratch instead of continuing the work of this repository.
 
-How to use Substrate
----
-
-The pipeline is represented by a sequence of nodes. Each node feeds its output
-to the node immediately below.
-
-You probably want to begin with a Text node, seeding the pipeline by typing
-some initial text. Alternatively, the all-purpose Bash node could be used to
-import text from an outside source. In the common case where the outside source
-is a file, the File node might be more appropriate. Choosing it will allow
-Substrate to monitor the file for changes, and re-run the pipeline with the new
-contents.
-
-When used later in the pipeline, our handy Bash node can also be used to apply
-external filters, log progress, or save the pipeline result to a file. Using
-the F5 key, you can run your script up to and including the current line (the
-script's output goes to Subtrate's stdout, outside the Substrate window). This
-becomes very convenient when debugging long Bash scripts.
-
-
-While you are free to use the full power of the Bash language, Substrate will
-be more helpful if you conentrate on chaining a sequence of commands using
-pipes. Otherwise, if you try to press F5 inside a variable definition, a
-function, or a loop, the truncated script won't be valid Bash code, and you
-won't be able to see your intermediate result.
-
-Once again, the solution is to use a more specialized node. For loops, you can
-use the Each Line node, which divides the text into multiple outputs. Only one
-output at a time will be visible, making it easy to debug the rest of the
-pipeline. When you are satisfied with the behaviour of a single iteration, you
-can append a Concat node to see the result of all the iterations at once.
-
-
-While the Each Line node can run many inputs through a single pipeline, the
-Each Pipeline node can run, instead, a single input through multiple pipelines.
-This way, Substrate nodes may be arranged not only in sequence (in a pipeline),
-but also or in parallel.
+As it stands, the project is mostly useful because of its file-tracking abilities: put some files in its subfolders, and it will run the UI's bash script every time one of those files changes. If you find that useful but would prefer a command-line interface, check out [Permamake](http://www.scvalex.net/posts/4/) (also available on github [here](https://github.com/scvalex/script-fu/blob/master/permamake.sh)!
