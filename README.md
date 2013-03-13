@@ -7,4 +7,4 @@ One day, I sat down and decided I would stop dreaming and start implementing! At
 
 This project is currently on hold, but I still need something like that, so I'm probably going to continue working on it someday. Although, knowing myself, I will probably start from scratch instead of continuing the work of this repository.
 
-As it stands, the project is mostly useful because of its file-tracking abilities: put some files in its subfolders, and it will run the UI's bash script every time one of those files changes. If you find that useful but would prefer a command-line interface, check out [Permamake](http://www.scvalex.net/posts/4/) (also available on github [here](https://github.com/scvalex/script-fu/blob/master/permamake.sh)!
+As it stands, the project is mostly useful because of its file-tracking abilities: put some files in its subfolders, and it will run the UI's bash script every time one of those files changes. If you find that useful but would prefer a command-line interface, check out [Permamake](http://www.scvalex.net/posts/4/)! (also available on github [here](https://github.com/scvalex/script-fu/blob/master/permamake.sh))
